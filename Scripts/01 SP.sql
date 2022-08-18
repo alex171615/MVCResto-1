@@ -23,7 +23,7 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS altaPlato $$
 CREATE PROCEDURE altaPlato(out unidPlato INT, unidRestaurante INT, unidCategoria INT, unNombre VARCHAR(45), unPrecio DECIMAL (7,2))
 BEGIN
-	 INSERT INTO Plato (idRestaurante, idCatergoria, nombre, precio)
-                 VALUES (unidRestaurante, unidCategoria,unNombre, unPrecio);
+	 INSERT INTO Plato (idRestaurante, idCategoria, nombre, precio)
+                 VALUES (unidRestaurante, unidCategoria, unNombre, unPrecio);
        SET unidPlato =  LAST_INSERT_ID();
 END $$

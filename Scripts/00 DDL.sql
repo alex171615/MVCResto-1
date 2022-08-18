@@ -25,8 +25,8 @@ CREATE TABLE Plato(
            idCategoria INT NOT NULL,
            nombre VARCHAR(45) NOT NULL,
            precio DECIMAL(7,5) NOT NULL,
-           CONSTRAINT PK_PLato PRIMARY KEY (idPlato),
-           CONSTRAINT FK_PLATO_Restaurante FOREIGN KEY (idRestaurante) REFERENCES Restaurante (idRestaurante), 
-           CONSTRAINT FK_PLATO_Categoria FOREIGN KEY (idCategoria) REFERENCES Categoria (idCategoria) 
+           CONSTRAINT PK_Plato PRIMARY KEY (idPlato),
+           CONSTRAINT FK_Plato_Restaurante FOREIGN KEY (idRestaurante) REFERENCES Restaurante (idRestaurante), 
+           CONSTRAINT FK_Plato_Categoria FOREIGN KEY (idCategoria) REFERENCES Categoria (idCategoria) 
 );
 
