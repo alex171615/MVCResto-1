@@ -9,7 +9,8 @@ CREATE TABLE Restaurante(
             mail VARCHAR(45) NOT NULL,
             telefono INT NOT NULL,
             contrasenia CHAR(64),
-            CONSTRAINT PK_Restaurante PRIMARY KEY (idRestaurante)
+            CONSTRAINT PK_Restaurante PRIMARY KEY (idRestaurante),
+            CONSTRAINT UQ_Restaurante_mail UNIQUE (mail)
           
 );
 

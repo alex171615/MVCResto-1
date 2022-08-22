@@ -3,7 +3,7 @@
 USE MVCRestaurante;
 DELIMITER $$
 DROP PROCEDURE IF EXISTS altaRestaurante $$
-CREATE PROCEDURE altaRestaurante (out unidRestaurante INT, unNombre VARCHAR(45), unaDireccion VARCHAR(45), unMail VARCHAR(45), unTelefono INT, unaContrasenia CHAR(64))
+CREATE PROCEDURE altaRestaurante (out unidRestaurante INT, unNombre VARCHAR(45), unaDireccion VARCHAR(45), unMail VARCHAR(45), unTelefono INT, unaContrasenia VARCHAR(64))
 BEGIN
       INSERT INTO Restaurante (nombre, direccion, mail, telefono, contrasenia)
                    VALUES (unNombre, unaDireccion, unMail, unTelefono, sha2(unaContrasenia, 256));
@@ -26,4 +26,15 @@ BEGIN
 	 INSERT INTO Plato (idRestaurante, idCategoria, nombre, precio)
                  VALUES (unidRestaurante, unidCategoria, unNombre, unPrecio);
        SET unidPlato =  LAST_INSERT_ID();
+END $$
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS restoPorPass $$
+CREATE PROCEDURE restoPorPass (unMail VARCHAR(45), unaContrasenia VARCHAR(64))
+BEGIN
+      IF (EXISTS(SELECT * 
+                 FROM Restaurante
+                 WHERE unMail = mail
+                 AND unaContrasenia = contrasenia 
+      ))
 END $$
