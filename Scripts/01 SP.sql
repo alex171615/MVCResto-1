@@ -10,6 +10,7 @@ BEGIN
       SET unidRestaurante =  LAST_INSERT_ID();
 END $$
 
+
 DELIMITER $$
 DROP PROCEDURE IF EXISTS altaCategoria $$
 CREATE PROCEDURE altaCategoria(out unidCategoria INT, unNombre VARCHAR(45))
@@ -18,6 +19,7 @@ BEGIN
                   VALUES (unNombre);
       SET unidCategoria =  LAST_INSERT_ID();
 END $$
+
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS altaPlato $$
@@ -28,13 +30,13 @@ BEGIN
        SET unidPlato =  LAST_INSERT_ID();
 END $$
 
+
 DELIMITER $$
 DROP PROCEDURE IF EXISTS restoPorPass $$
 CREATE PROCEDURE restoPorPass (unMail VARCHAR(45), unaContrasenia VARCHAR(64))
 BEGIN
-      IF (EXISTS(SELECT * 
-                 FROM Restaurante
-                 WHERE unMail = mail
-                 AND unaContrasenia = contrasenia 
-      ))
+      SELECT *
+      FROM Restaurante
+      WHERE unMail = mail
+      AND sha2(unaContrasenia, 256) = contrasenia; 
 END $$
