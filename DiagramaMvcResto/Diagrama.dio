@@ -1,11 +1,11 @@
 <mxfile host="65bd71144e">
     <diagram id="AZcvK87JizkSnhEnWkXW" name="Página-1">
-        <mxGraphModel dx="831" dy="610" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="831" dy="466" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="2" value="Platos" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="630" y="46" width="160" height="190" as="geometry"/>
+                    <mxGeometry x="340" y="70" width="160" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="3" value="+ idPlato: Int &#10;+ idCategaria. Int &#10;+ nombre: String&#10;+ precio: Double&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2" vertex="1">
                     <mxGeometry y="26" width="160" height="94" as="geometry"/>
@@ -17,7 +17,7 @@
                     <mxGeometry y="128" width="160" height="62" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="Categoria" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="370" y="46" width="160" height="190" as="geometry"/>
+                    <mxGeometry x="590" y="50" width="160" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="7" value="+ idCategoria :  Int&#10;+ nombre: Varchar (45)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="6" vertex="1">
                     <mxGeometry y="26" width="160" height="64" as="geometry"/>
@@ -29,7 +29,7 @@
                     <mxGeometry y="98" width="160" height="92" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="Restaurante" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="70" y="46" width="160" height="180" as="geometry"/>
+                    <mxGeometry x="100" y="60" width="160" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="11" value="+ idRestaurante: Int &#10;+ nombre: string&#10;+ direccion: string&#10;+ mail: string&#10;+ telefono: int&#10;+ contraseña: string&#10;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="10" vertex="1">
                     <mxGeometry y="26" width="160" height="94" as="geometry"/>
@@ -39,9 +39,6 @@
                 </mxCell>
                 <mxCell id="13" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="10" vertex="1">
                     <mxGeometry y="128" width="160" height="52" as="geometry"/>
-                </mxCell>
-                <mxCell id="19" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.019;entryY=0.766;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="11" target="7">
-                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
