@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using RestoMVC.Core;
 using RestoMVC.Core.AdoET12;
 
-namespace RestoMVC.AdoET12.Mapeadores
+namespace RestoMVC.Core.AdoET12.Mapeadores
 {
     public class MapCategoria : Mapeador<Categoria>
     {
@@ -46,7 +46,7 @@ namespace RestoMVC.AdoET12.Mapeadores
 
         public Categoria CategoriaPorId(int Id)
         {
-            SetComandoSP("RestaurantePorId");
+            SetComandoSP("CategoriaPorId");
 
             BP.CrearParametro("unId")
                 .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)

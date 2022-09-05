@@ -11,38 +11,40 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
 {
     public class MapPlato : Mapeador<Plato>
     {
-        public MapPlato(AdoAGBD ado) : base(ado)
-        {
-            Tabla = "Plato";
-        }
+        public MapCategoria MapCategoria {get; set;}
+        public MapPlato(AdoAGBD ado) : base(ado) => Tabla = "Plato";
+        public MapPlato(MapCategoria mapCategoria) : this(mapCategoria.AdoAGBD)
+        => MapCategoria = mapCategoria;
         public override Plato ObjetoDesdeFila(DataRow fila)
         => new Plato()
         {
             Id = Convert.ToInt32(fila["id"]),
-            Nombre = fila["nombre"].ToString()
+            categoria = MapCategoria.CategoriaPorId(Convert.ToByte(fila["idRubro"])),
+            Nombre = fila["nombre"].ToString(),
+            Precio = Convert.ToDouble(fila["precio"])
 
         };
         public void AltaPlato(Plato plato)
-            => EjecutarComandoCon("altaRestaurante", ConfigurarAltaPlato, plato);
+            => EjecutarComandoCon("altaPlato", ConfigurarAltaPlato, plato);
 
         public void ConfigurarAltaPlato(Plato plato)
         {
-            SetComandoSP("altaRestaurante");
+            SetComandoSP("altaPlato");
 
             BP.CrearParametro("Id")
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
-                    .SetValor(restaurante.Id)
+                    .SetValor(plato.Id)
                     .AgregarParametro();
 
             BP.CrearParametro("Nombre")
                     .SetTipoVarchar(45)
-                    .SetValor(restaurante.Nombre)
+                    .SetValor(plato.Nombre)
                     .AgregarParametro();
         }
 
-        public Restaurante RestaurantePorId(int Id)
+        public Plato PlatoPorId(int Id)
         {
-            SetComandoSP("RestaurantePorId");
+            SetComandoSP("PlatoPorId");
 
             BP.CrearParametro("unId")
                 .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
@@ -51,7 +53,9 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
 
             return ElementoDesdeSP();
         }
-        public List<Restaurante> ObtenerRestaurante() => ColeccionDesdeTabla();
+
+
+        public List<Plato> ObtenerPlato() => ColeccionDesdeTabla();
     }
 
 }
