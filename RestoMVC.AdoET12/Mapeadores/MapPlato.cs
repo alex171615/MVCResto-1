@@ -12,11 +12,12 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
     public class MapPlato : Mapeador<Plato>
     {
         public MapCategoria MapCategoria {get; set;}
+        public MapRestaurante MapRestaurante {get; set;}
         public MapPlato(AdoAGBD ado) : base(ado) => Tabla = "Plato";
         public MapPlato(MapCategoria mapCategoria) : this(mapCategoria.AdoAGBD)
         => MapCategoria = mapCategoria;
-         public MapPlato(MapCategoria mapCategoria) : this(mapCategoria.AdoAGBD)
-        => MapCategoria = mapCategoria;
+         public MapPlato(MapRestaurante mapRestaurante) : this(mapRestaurante.AdoAGBD)
+        => MapRestaurante = mapRestaurante;
 
         public override Plato ObjetoDesdeFila(DataRow fila)
         => new Plato()

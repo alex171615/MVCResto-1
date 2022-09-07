@@ -19,7 +19,11 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         => new Restaurante()
         {
             Id = Convert.ToInt32(fila["id"]),
-            Nombre = fila["nombre"].ToString()
+            Nombre = fila["nombre"].ToString(),
+            Direccion = fila["direccion"].ToString(),
+            Mail = fila["mail"].ToString(),
+            Telefono = Convert.ToInt32(fila["telefono"]),
+            Contrasenia = fila["contrasenia"].ToString()
         };
         public void AltaRestaurante(Restaurante restaurante)
             => EjecutarComandoCon("altaRestaurante", ConfigurarAltaRestaurante, restaurante);
@@ -37,6 +41,26 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                     .SetTipoVarchar(45)
                     .SetValor(restaurante.Nombre)
                     .AgregarParametro();
+                BP.CrearParametro("direccion")
+                    .SetTipoVarchar(45)
+                    .SetValor(restaurante.Direccion)
+                    .AgregarParametro();
+
+            BP.CrearParametro("mail")
+                    .SetTipoVarchar(45)
+                    .SetValor(restaurante.Mail)
+                    .AgregarParametro();
+
+            BP.CrearParametro("telefono")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+                    .SetValor(restaurante.Telefono)
+                    .AgregarParametro();
+
+            BP.CrearParametro("contrasenia")
+                    .SetTipoVarchar(64)
+                    .SetValor(restaurante.Contrasenia)
+                    .AgregarParametro();
+
         }
 
         public Restaurante RestaurantePorId(int Id)
@@ -49,6 +73,23 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                 .AgregarParametro();
 
             return ElementoDesdeSP();
+        }
+        public Restaurante restoPorPass(string Mail ,string Contrasenia)
+        {
+            SetComandoSP("restoPorPass");
+
+            BP.CrearParametro("unMail")
+                .SetTipoVarchar(45)
+                .SetValor(Mail)
+                .AgregarParametro();
+            
+            BP.CrearParametro("unaContrasenia")
+                .SetTipoVarchar(64)
+                .SetValor(Contrasenia)
+                .AgregarParametro();
+
+            return ElementoDesdeSP();
+
         }
         public List<Restaurante> ObtenerRestaurante() => ColeccionDesdeTabla();
     }
