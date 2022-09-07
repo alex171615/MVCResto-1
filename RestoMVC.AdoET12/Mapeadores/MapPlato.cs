@@ -15,6 +15,9 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         public MapPlato(AdoAGBD ado) : base(ado) => Tabla = "Plato";
         public MapPlato(MapCategoria mapCategoria) : this(mapCategoria.AdoAGBD)
         => MapCategoria = mapCategoria;
+         public MapPlato(MapCategoria mapCategoria) : this(mapCategoria.AdoAGBD)
+        => MapCategoria = mapCategoria;
+
         public override Plato ObjetoDesdeFila(DataRow fila)
         => new Plato()
         {
