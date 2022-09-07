@@ -19,6 +19,10 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
          public MapPlato(MapRestaurante mapRestaurante) : this(mapRestaurante.AdoAGBD)
         => MapRestaurante = mapRestaurante;
 
+
+
+
+
         public override Plato ObjetoDesdeFila(DataRow fila)
         => new Plato()
         {
@@ -28,8 +32,14 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             Precio = Convert.ToDouble(fila["precio"])
 
         };
+
+
+
+
+
         public void AltaPlato(Plato plato)
             => EjecutarComandoCon("altaPlato", ConfigurarAltaPlato, plato);
+
 
         public void ConfigurarAltaPlato(Plato plato)
         {
@@ -44,7 +54,22 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                     .SetTipoVarchar(45)
                     .SetValor(plato.Nombre)
                     .AgregarParametro();
+
+            BP.CrearParametro("unIdCategoria")
+              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
+              .SetValor(plato.categoria.Id)
+              .AgregarParametro();
+
+              BP.CrearParametro("unIdRestaurante")
+              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
+              .SetValor(plato.restaurante.Id)
+              .AgregarParametro();
+        
         }
+
+
+
+
 
         public Plato PlatoPorId(int Id)
         {
