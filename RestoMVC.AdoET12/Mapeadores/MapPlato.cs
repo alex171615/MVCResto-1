@@ -60,11 +60,17 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
               .SetValor(plato.categoria.Id)
               .AgregarParametro();
 
-              BP.CrearParametro("unIdRestaurante")
+            BP.CrearParametro("unIdRestaurante")
               .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
               .SetValor(plato.restaurante.Id)
               .AgregarParametro();
-        
+
+
+            BP.CrearParametro("Precio")
+              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
+              .SetValor(plato.Precio)
+              .AgregarParametro();  
+            
         }
 
 
