@@ -41,7 +41,8 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                     .SetTipoVarchar(45)
                     .SetValor(restaurante.Nombre)
                     .AgregarParametro();
-                BP.CrearParametro("direccion")
+
+            BP.CrearParametro("direccion")
                     .SetTipoVarchar(45)
                     .SetValor(restaurante.Direccion)
                     .AgregarParametro();

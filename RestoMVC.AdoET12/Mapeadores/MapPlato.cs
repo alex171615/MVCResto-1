@@ -34,9 +34,6 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         };
 
 
-
-
-
         public void AltaPlato(Plato plato)
             => EjecutarComandoCon("altaPlato", ConfigurarAltaPlato, plato);
 
@@ -56,9 +53,9 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                     .AgregarParametro();
 
             BP.CrearParametro("unIdCategoria")
-              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
-              .SetValor(plato.categoria.Id)
-              .AgregarParametro();
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
+                    .SetValor(plato.categoria.Id)
+                    .AgregarParametro();
 
             BP.CrearParametro("unIdRestaurante")
               .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
@@ -72,9 +69,6 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
               .AgregarParametro();  
             
         }
-
-
-
 
 
         public Plato PlatoPorId(int Id)
