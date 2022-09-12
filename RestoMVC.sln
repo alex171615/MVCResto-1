@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestoMVC.Core", "RestoMVC.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestoMVC.AdoET12", "RestoMVC.AdoET12\RestoMVC.AdoET12.csproj", "{675CC3BC-F9F4-46D7-8BD3-7DCF4619D25D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestoMVC.Mvc", "RestoMVC.Mvc\RestoMVC.Mvc.csproj", "{0E1D5269-1FBD-4B42-98A6-B1752A191B0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{675CC3BC-F9F4-46D7-8BD3-7DCF4619D25D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{675CC3BC-F9F4-46D7-8BD3-7DCF4619D25D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{675CC3BC-F9F4-46D7-8BD3-7DCF4619D25D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E1D5269-1FBD-4B42-98A6-B1752A191B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E1D5269-1FBD-4B42-98A6-B1752A191B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E1D5269-1FBD-4B42-98A6-B1752A191B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E1D5269-1FBD-4B42-98A6-B1752A191B0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
