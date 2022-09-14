@@ -10,10 +10,16 @@ namespace RestoMVC.Core
     {
         public int Id {get; set;}
         public string Nombre {get; set;}
-        public Categoria (){List<Plato> platos = new List<Plato>();}
-
         public Categoria (string nombre) => Nombre = nombre;
-
+        public List<Plato> Platos {get; set;}
         public Categoria (int id) => Id = id;
+        public Categoria()
+        {
+            Platos = new List<Plato>();
+        }
+        public void AgregarProducto(Plato plato)
+            => Platos.Add(plato);
+        public void EliminarProducto(Plato plato)
+            => Platos.Remove(plato);
     }
 }
