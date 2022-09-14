@@ -19,7 +19,10 @@ namespace RestoMVC.Core
         public int Telefono {get; set;}
 
         public string Contrasenia {get; set;}
-        public Restaurante () {}
+        public List<Plato> Platos {get; set;}
+        public Restaurante () {
+            Platos = new List<Plato>();
+        }
 
         public Restaurante (int id) => Id = id;
 
