@@ -20,7 +20,7 @@ namespace RestoMVC.Core
 
         public Plato () {List<Categoria> categorias = new List<Categoria>();}
 
-        public List<
+        
         
         public Plato (int id ) => Id = id;
         public Plato (string nombre) => Nombre = nombre;
