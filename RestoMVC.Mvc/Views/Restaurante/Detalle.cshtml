@@ -9,6 +9,7 @@
 </head>
 <body>
     <a asp-controller="Plato" asp-action="FormAlta" asp-route-idPlato="@Model.Id">Alta Plato</a><br />
+
     <h5>Platos</h5>
     <table>
         <thead>
@@ -19,7 +20,7 @@
             {
                 <tr>
                     <td>
-                        <a asp-controller="Plato" asp-action="Detalle" asp-route-id="@plato.Id">@plato.Nombre</a>
+                        <a asp-controller="Plato" asp-action="Detalle" asp-route-id="@plato.Id">@plato.Nombre @plato.Precio</a>
                     </td>
                     <td>
                         <!--Aca tengo que hacer un formulario por que dentro de él,
