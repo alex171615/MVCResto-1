@@ -1,12 +1,7 @@
-using et12.edu.ar.AGBD;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-builder.Services.AddSingleton<AdoAGBD>(sadoet12 => FactoryAdoAGBD.GetAdoMySQL("appSettings.json", "test"));
-builder.Services.AddTransient<IAdo, MapRestaurante>();
 
 var app = builder.Build();
 
