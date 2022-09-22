@@ -6,8 +6,16 @@ using  et12.edu.ar.AGBD.Ado;
 
 namespace RestoMVC.AdoET12
 {
-    public class AdoRestoMVC : IAdo 
+    public class AdoRestoMVC : IAdo
     {
-        
+        public void AltaRestaurante(Restaurante restaurante)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Restaurante> ObtenerRestaurante()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
