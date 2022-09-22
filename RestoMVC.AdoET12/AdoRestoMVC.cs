@@ -8,14 +8,15 @@ namespace RestoMVC.AdoET12
 {
     public class AdoRestoMVC : IAdo
     {
-        public void AltaRestaurante(Restaurante restaurante)
+        public AdoAGBD Ado {get; set;}
+        public MapRestaurante MapRestaurante {get; set;}
+        public AdoRestoMVC(AdoAGBD ado)
         {
-            throw new NotImplementedException();
+            Ado = ado;
+            MapRestaurante = new MapRestaurante(Ado);
         }
+         public void AltaRestaurante( Restaurante restaurante) => MapRestaurante.AltaRestaurante(restaurante);
 
-        public List<Restaurante> ObtenerRestaurante()
-        {
-            throw new NotImplementedException();
-        }
+          public List<Restaurante> ObtenerClientes() => MapRestaurante.ObtenerRestaurante();
     }
 }

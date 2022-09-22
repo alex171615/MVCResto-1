@@ -6,7 +6,7 @@ public class RestauranteController : Controller
 {
     [HttpGet]
     public IActionResult Index()
-        => View(Repositorio.platos);
+        => View(Restaurante );
 
     [HttpGet]
     public IActionResult Detalle(int id)
