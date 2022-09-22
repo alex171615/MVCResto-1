@@ -17,6 +17,6 @@ namespace RestoMVC.AdoET12
         }
          public void AltaRestaurante( Restaurante restaurante) => MapRestaurante.AltaRestaurante(restaurante);
 
-          public List<Restaurante> ObtenerClientes() => MapRestaurante.ObtenerRestaurante();
+          public List<Restaurante> ObtenerRestaurante() => MapRestaurante.ObtenerRestaurante();
     }
 }
