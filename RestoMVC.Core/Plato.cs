@@ -18,10 +18,8 @@ namespace RestoMVC.Core
 
         public double Precio {get; set;}
 
-        public Plato () {List<Categoria> categorias = new List<Categoria>();}
+        public Plato () {}
 
-        
-        
         public Plato (int id ) => Id = id;
         public Plato (string nombre) => Nombre = nombre;
 
