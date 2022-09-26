@@ -6,38 +6,38 @@ public class RestauranteController : Controller
 {
     [HttpGet]
     public IActionResult Index()
-        => View(Restaurante );
+        => View(Restaurante.Restaurantes);
 
     [HttpGet]
     public IActionResult Detalle(int id)
     {
-        var plato = Repositorio.GetCategoria(id);
-        if (plato is null)
+        var restaurante = Restaurante.GetRestaurante(id);
+        if (restaurante is null)
         {
             return NotFound();
         }
-        return View(plato);
+        return View(restaurante);
     }
 
     [HttpGet]
     public IActionResult FormAlta() => View();
 
     [HttpPost]
-    public IActionResult FormAlta(Plato plato)
+    public IActionResult FormAlta(Restaurante restaurante)
     {
-       Repositorio.AgregarPlato(plato);
-       return View("Index", Repositorio.platos);
+       Restaurante.AgregarRestaurante(restaurante);
+       return View("Index", Restaurante.Restaurantes);
     }
 
     [HttpPost]
     public IActionResult Eliminar(int id)
     {
-        var plato = Repositorio.GetPlato(id);
-        if (plato is null)
+        var restaurante = Restaurante.GetRestaurante(id);
+        if (restaurante is null)
         {
             return NotFound();
         }
-        Repositorio.EliminarPlato(plato);
-        return View("Index", Repositorio.platos);
+        Restaurante.EliminarRestaurante(restaurante);
+        return View("Index", Restaurante.Restaurantes);
     }
 }
