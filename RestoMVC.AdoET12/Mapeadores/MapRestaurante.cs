@@ -15,6 +15,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         {
             Tabla = "Restaurante";
         }
+        
         public override Restaurante ObjetoDesdeFila(DataRow fila)
         => new Restaurante()
         {
@@ -26,9 +27,9 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             Contrasenia = fila["contrasenia"].ToString()
         };
         public void AltaRestaurante(Restaurante restaurante)
-            => EjecutarComandoCon("altaRestaurante", ConfigurarAltaRestaurante, restaurante);
+            => EjecutarComandoCon("altaRestaurante", ConfigurarAltaRestaurante,PostAltaRestaurante, restaurante);
 
-        public void ConfigurarAltaRestaurante(Restaurante restaurante)
+        private void ConfigurarAltaRestaurante(Restaurante restaurante)
         {
             SetComandoSP("altaRestaurante");
 
@@ -64,7 +65,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
 
         }
 
-        public Restaurante RestaurantePorId(int Id)
+        private Restaurante RestaurantePorId(int Id)
         {
             SetComandoSP("RestaurantePorId");
 
@@ -75,7 +76,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
 
             return ElementoDesdeSP();
         }
-        public Restaurante restoPorPass(string Mail ,string Contrasenia)
+        private Restaurante restoPorPass(string Mail ,string Contrasenia)
         {
             SetComandoSP("restoPorPass");
 
@@ -91,6 +92,11 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
 
             return ElementoDesdeSP();
 
+        }
+        private PostAltaRestaurante(Restaurante restaurante)
+        {
+            var paramIdRestaurante = GetParametro("unidRestaurante");
+            restaurante.
         }
         public List<Restaurante> ObtenerRestaurante() => ColeccionDesdeTabla();
     }
