@@ -19,7 +19,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         public override Restaurante ObjetoDesdeFila(DataRow fila)
         => new Restaurante()
         {
-            Id = Convert.ToInt32(fila["id"]),
+            Id = Convert.ToInt32(fila["idRestaurante"]),
             Nombre = fila["nombre"].ToString(),
             Direccion = fila["direccion"].ToString(),
             Mail = fila["mail"].ToString(),
@@ -27,7 +27,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             Contrasenia = fila["contrasenia"].ToString()
         };
         public void AltaRestaurante(Restaurante restaurante)
-            => EjecutarComandoCon("altaRestaurante", ConfigurarAltaRestaurante,PostAltaRestaurante, restaurante);
+            => EjecutarComandoCon("altaRestaurante", ConfigurarAltaRestaurante, PostAltaRestaurante, restaurante);
 
         private void ConfigurarAltaRestaurante(Restaurante restaurante)
         {
