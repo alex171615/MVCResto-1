@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<AdoAGBD>(sAdoEt12 => FactoryAdoAGBD.GetAdoMySQL("appSettings.json", "test"));
+builder.Services.AddSingleton<AdoAGBD>(AdoRestoMVC => FactoryAdoAGBD.GetAdoMySQL("appSettings.json", "test"));
 builder.Services.AddTransient<IAdo, AdoRestoMVC>();
 
 var app = builder.Build();
