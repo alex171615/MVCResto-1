@@ -4,16 +4,13 @@ using RestoMVC.Core;
 namespace RestoMVC.Mvc.Controllers;
 public class RestauranteController : Controller
 {
-    private readonly IAdo IAdo;
-    RestauranteController (IAdo iado)
-    {
-        IAdo = iado;
-    }
+    private readonly IAdo Ado;
+    public RestauranteController (IAdo ado) => Ado = ado;
 
     
     public IActionResult Index()
     {
-        var restaurantes = IAdo.ObtenerRestaurante();
+        var restaurantes = Ado.ObtenerRestaurante();
         return View("Listado", restaurantes);
         }
     [HttpGet]
@@ -22,7 +19,7 @@ public class RestauranteController : Controller
     }
     public IActionResult AltaRestaurante(Restaurante restaurante)
     {
-        IAdo.AltaRestaurante(restaurante);
+        Ado.AltaRestaurante(restaurante);
         return RedirectToAction(nameof(Index));
     }
 
