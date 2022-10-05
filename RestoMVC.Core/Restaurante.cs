@@ -24,10 +24,11 @@ namespace RestoMVC.Core
             Platos = new List<Plato>();
         }
 
-        public Restaurante (int id) => Id = id;
-
-        public Restaurante (string nombre) => Nombre = nombre;
-        static int idRestaurante = 1;
+        public Restaurante(string nombre, string direccion, string mail, int telefono, string contrasenia) : this ()
+        {
+            Nombre = nombre;
+            Direccion = direccion
+        }
         
         
     }
