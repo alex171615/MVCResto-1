@@ -5,33 +5,33 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <title>RestoMVC - Restaurantes</title>
 </head>
-<body background="/imag/menulistimag.jpg">
+<body>
     <form asp-action="AltaRestaurante" method="post">
     <div asp-validation-summary="All"></div>
     <div>
-        <label asp-for="Nombre">Nombre:</label>
-        <input asp-for="Nombre">
+        <center><label asp-for="Nombre">Nombre:</label></center>
+        <center><input asp-for="Nombre"></center>
     </div>
     <div>
-        <label asp-for="Direccion">Direccion:</label>
-        <input asp-for="Direccion">
+        <center><label asp-for="Direccion">Direccion:</label></center>
+        <center><input asp-for="Direccion"></center>
     </div>
     <div>
-        <label asp-for="Mail">Mail:</label>
-        <input asp-for="Mail">
+        <center><label asp-for="Mail">Mail:</label></center>
+        <center><input asp-for="Mail"></center>
     </div>
     <div>
-        <label asp-for="Telefono">Telefono:</label>
-        <input asp-for="Telefono">
+        <center><label asp-for="Telefono">Telefono:</label></center>
+        <center><input asp-for="Telefono"></center>
     </div>
     <div>
-        <label asp-for="Contrasenia">Contrasenia:</label>
-        <input asp-for="Contrasenia" type="password">
+        <center><label asp-for="Contrasenia">Contrasenia:</label></center>
+        <center><input asp-for="Contrasenia" type="password"></center>
     </div>
-    <button type="submit">Alta Restaurante</button>
+    <center><button type="submit">Alta Restaurante</button></center>
     </form>
-    <img src="menulistimag.jpg" alt="">
 </body>
 </html>
