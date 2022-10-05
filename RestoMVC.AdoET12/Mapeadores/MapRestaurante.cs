@@ -93,10 +93,10 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             return ElementoDesdeSP();
 
         }
-        private PostAltaRestaurante(Restaurante restaurante)
+        private void PostAltaRestaurante(Restaurante restaurante)
         {
             var paramIdRestaurante = GetParametro("unidRestaurante");
-            restaurante.
+            restaurante.Id = Convert.ToUInt16(paramIdRestaurante.Value);
         }
         public List<Restaurante> ObtenerRestaurante() => ColeccionDesdeTabla();
     }
