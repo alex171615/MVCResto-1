@@ -33,32 +33,32 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         {
             SetComandoSP("altaRestaurante");
 
-            BP.CrearParametro("idRestaurante")
+            BP.CrearParametro("unidRestaurante")
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
                     .SetValor(restaurante.Id)
                     .AgregarParametro();
 
-            BP.CrearParametro("nombre")
+            BP.CrearParametro("unnombre")
                     .SetTipoVarchar(45)
                     .SetValor(restaurante.Nombre)
                     .AgregarParametro();
 
-            BP.CrearParametro("direccion")
+            BP.CrearParametro("unadireccion")
                     .SetTipoVarchar(45)
                     .SetValor(restaurante.Direccion)
                     .AgregarParametro();
 
-            BP.CrearParametro("mail")
+            BP.CrearParametro("unmail")
                     .SetTipoVarchar(45)
                     .SetValor(restaurante.Mail)
                     .AgregarParametro();
 
-            BP.CrearParametro("telefono")
+            BP.CrearParametro("untelefono")
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
                     .SetValor(restaurante.Telefono)
                     .AgregarParametro();
 
-            BP.CrearParametro("contrasenia")
+            BP.CrearParametro("unacontrasenia")
                     .SetTipoVarchar(64)
                     .SetValor(restaurante.Contrasenia)
                     .AgregarParametro();
@@ -69,7 +69,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         {
             SetComandoSP("RestaurantePorId");
 
-            BP.CrearParametro("unId")
+            BP.CrearParametro("unidRestaurante")
                 .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
                 .SetValor(Id)
                 .AgregarParametro();
