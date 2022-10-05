@@ -3,7 +3,7 @@
 USE MVCRestaurante;
 DELIMITER $$
 DROP PROCEDURE IF EXISTS altaRestaurante $$
-CREATE PROCEDURE altaRestaurante (out unidRestaurante INT, unNombre VARCHAR(45), unaDireccion VARCHAR(45), unMail VARCHAR(45), unTelefono INT, unaContrasenia VARCHAR(64))
+CREATE PROCEDURE altaRestaurante (out unidRestaurante SMALLINT, unNombre VARCHAR(45), unaDireccion VARCHAR(45), unMail VARCHAR(45), unTelefono INT, unaContrasenia VARCHAR(64))
 BEGIN
       INSERT INTO Restaurante (nombre, direccion, mail, telefono, contrasenia)
                    VALUES (unNombre, unaDireccion, unMail, unTelefono, sha2(unaContrasenia, 256));
@@ -13,7 +13,7 @@ END $$
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS altaCategoria $$
-CREATE PROCEDURE altaCategoria(out unidCategoria INT, unNombre VARCHAR(45))
+CREATE PROCEDURE altaCategoria(out unidCategoria SMALLINT, unNombre VARCHAR(45))
 BEGIN
       INSERT INTO Categoria (nombre)
                   VALUES (unNombre);
@@ -23,7 +23,7 @@ END $$
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS altaPlato $$
-CREATE PROCEDURE altaPlato(out unidPlato INT, unidRestaurante INT, unidCategoria INT, unNombre VARCHAR(45), unPrecio DECIMAL (7,2))
+CREATE PROCEDURE altaPlato(out unidPlato SMALLINT, unidRestaurante SMALLINT, unidCategoria SMALLINT, unNombre VARCHAR(45), unPrecio DECIMAL (7,2))
 BEGIN
 	 INSERT INTO Plato (idRestaurante, idCategoria, nombre, precio)
                  VALUES (unidRestaurante, unidCategoria, unNombre, unPrecio);

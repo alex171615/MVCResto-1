@@ -15,7 +15,7 @@ namespace RestoMVC.AdoET12
             Ado = ado;
             MapRestaurante = new MapRestaurante(Ado);
         }
-         public void AltaRestaurante( Restaurante restaurante) => MapRestaurante.AltaRestaurante(restaurante);
+         public void AltaRestaurante(Restaurante restaurante) => MapRestaurante.AltaRestaurante(restaurante);
 
           public List<Restaurante> ObtenerRestaurante() => MapRestaurante.ObtenerRestaurante();
     }

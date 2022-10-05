@@ -1,11 +1,7 @@
 using et12.edu.ar.AGBD.Mapeadores;
 using et12.edu.ar.AGBD.Ado;
-using System;
 using System.Data;
-using System.Collections.Generic;
 using RestoMVC.Core;
-using RestoMVC.Core.AdoET12;
-
 
 namespace RestoMVC.Core.AdoET12.Mapeadores
 {
@@ -33,32 +29,32 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         {
             SetComandoSP("altaRestaurante");
 
-            BP.CrearParametro("unidRestaurante")
-                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            BP.CrearParametroSalida("unidRestaurante")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
                     .SetValor(restaurante.Id)
                     .AgregarParametro();
 
-            BP.CrearParametro("unnombre")
+            BP.CrearParametro("unNombre")
                     .SetTipoVarchar(45)
                     .SetValor(restaurante.Nombre)
                     .AgregarParametro();
 
-            BP.CrearParametro("unadireccion")
+            BP.CrearParametro("unaDireccion")
                     .SetTipoVarchar(45)
                     .SetValor(restaurante.Direccion)
                     .AgregarParametro();
 
-            BP.CrearParametro("unmail")
+            BP.CrearParametro("unMail")
                     .SetTipoVarchar(45)
                     .SetValor(restaurante.Mail)
                     .AgregarParametro();
 
-            BP.CrearParametro("untelefono")
-                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            BP.CrearParametro("unTelefono")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
                     .SetValor(restaurante.Telefono)
                     .AgregarParametro();
 
-            BP.CrearParametro("unacontrasenia")
+            BP.CrearParametro("unaContrasenia")
                     .SetTipoVarchar(64)
                     .SetValor(restaurante.Contrasenia)
                     .AgregarParametro();
@@ -96,7 +92,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         private void PostAltaRestaurante(Restaurante restaurante)
         {
             var paramIdRestaurante = GetParametro("unidRestaurante");
-            restaurante.Id = Convert.ToUInt16(paramIdRestaurante.Value);
+            restaurante.Id = Convert.ToInt32(paramIdRestaurante.Value);
         }
         public List<Restaurante> ObtenerRestaurante() => ColeccionDesdeTabla();
     }

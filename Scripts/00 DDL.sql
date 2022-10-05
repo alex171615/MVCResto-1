@@ -3,7 +3,7 @@ CREATE DATABASE MVCRestaurante;
 USE MVCRestaurante;
 
 CREATE TABLE Restaurante(
-			idRestaurante INT NOT NULL AUTO_INCREMENT,
+			idRestaurante SMALLINT NOT NULL AUTO_INCREMENT,
             nombre VARCHAR(45) NOT NULL,
             direccion VARCHAR(45) NOT NULL,
             mail VARCHAR(45) NOT NULL,
@@ -15,13 +15,13 @@ CREATE TABLE Restaurante(
 );
 
 CREATE TABLE Categoria(
-           idCategoria INT NOT NULL AUTO_INCREMENT,
+           idCategoria SMALLINT NOT NULL AUTO_INCREMENT,
            nombre VARCHAR(45) NOT NULL,
            CONSTRAINT PK_Categoria PRIMARY KEY (idCategoria)
 );
 
 CREATE TABLE Plato(
-           idPlato INT NOT NULL AUTO_INCREMENT,
+           idPlato SMALLINT NOT NULL AUTO_INCREMENT,
            idRestaurante INT NOT NULL,
            idCategoria INT NOT NULL,
            nombre VARCHAR(45) NOT NULL,
