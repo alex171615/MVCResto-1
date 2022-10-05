@@ -4,9 +4,28 @@ using RestoMVC.Core;
 namespace RestoMVC.Mvc.Controllers;
 public class RestauranteController : Controller
 {
-    [HttpGet]
+    private readonly IAdo IAdo;
+    RestauranteController (IAdo iado)
+    {
+        IAdo = iado;
+    }
+
+    
     public IActionResult Index()
-        => View(Restaurante.Restaurantes);
+    {
+        var restaurantes = IAdo.ObtenerRestaurante();
+        return View("Listado", restaurantes);
+        }
+    [HttpGet]
+    public IActionResult AltaRestaurante () {
+        return View();
+    }
+    public IActionResult AltaRestaurante(Restaurante restaurante)
+    {
+        IAdo.AltaRestaurante(restaurante);
+        return RedirectToAction(nameof(Index));
+    }
+
 
     [HttpGet]
     public IActionResult Detalle(int id)

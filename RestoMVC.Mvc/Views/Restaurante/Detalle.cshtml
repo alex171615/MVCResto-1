@@ -9,7 +9,7 @@
     <title>RestoMVC - Detalle </title>
 </head>
 <body>
-    <a asp-controller="Restaurante" asp-action="FormAlta" asp-route-idRestaurante="@Nombre.Id">Alta Restaurante</a><br />
+    <a asp-controller="Restaurante" asp-action="FormAlta" asp-route-idRestaurante="@Model">Alta Restaurante</a><br />
 
     <h5>Restaurantes</h5>
     <table>
@@ -21,15 +21,20 @@
             {
                 <tr>
                     <td>
-                        <a asp-controller="Restaurante" asp-action="Detalle" asp-route-id="@restaurante.Id">@restaurante.Nombre</a>
+                        <a asp-controller="Restaurante" asp-action="Detalle" asp-route-id="@restaurante.Id">@restaurante.Nombre @restaurante.Direccion @restaurante.Contrasenia @restaurante.Mail @restaurante.Telefono</a>
                     </td>
                     <td>
                         <!--Aca tengo que hacer un formulario por que dentro de él,
                         es la unica forma de invocar al método con verbo post-->
-                        <form asp-controller="Plato" asp-action="Eliminar" method="post">
+                        <form asp-controller="Restaurante" asp-action="Eliminar" method="post">
                             <input type="hidden" asp-for="@restaurante.Id"/>
+                            <input type="hidden" asp-for="@restaurante.Nombre"/>
+                            <input type="hidden" asp-for="@restaurante.Direccion"/>
+                            <input type="hidden" asp-for="@restaurante.Mail"/>
+                            <input type="hidden" asp-for="@restaurante.Telefono"/>
+                            <input type="hidden" asp-for="@restaurante.Contrasenia"/>
                             <button type="submit">Eliminar</button>
-                            <a asp-controller="Plato" asp-action="Modificar" asp-route-id="@restaurante.Id">Modificar</a>
+                            <a asp-controller="Restaurante" asp-action="Modificar" asp-route-id="@restaurante.Id">Modificar</a>
                         </form>
                     </td>
                 </tr>

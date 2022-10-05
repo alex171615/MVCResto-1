@@ -40,3 +40,4 @@ BEGIN
       WHERE unMail = mail
       AND sha2(unaContrasenia, 256) = contrasenia; 
 END $$
+

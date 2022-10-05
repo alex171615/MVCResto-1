@@ -32,12 +32,12 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         {
             SetComandoSP("altaRestaurante");
 
-            BP.CrearParametro("Id")
+            BP.CrearParametro("idRestaurante")
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
                     .SetValor(restaurante.Id)
                     .AgregarParametro();
 
-            BP.CrearParametro("Nombre")
+            BP.CrearParametro("nombre")
                     .SetTipoVarchar(45)
                     .SetValor(restaurante.Nombre)
                     .AgregarParametro();
