@@ -20,6 +20,8 @@ body {
   background-size: cover;
 }
 label{
+  color: black;
+  font-size: 40px;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
@@ -30,6 +32,8 @@ label{
 
 }
 input{
+  color: black;
+  font-size: 40px;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
@@ -39,6 +43,8 @@ input{
   align-items: center;
 }
 button{
+  color: black;
+  font-size: 40px;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
