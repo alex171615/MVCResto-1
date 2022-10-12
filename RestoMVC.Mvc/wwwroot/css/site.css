@@ -44,7 +44,7 @@ input{
 }
 button{
   color: black;
-  font-size: 40px;
+  font-size: 20px;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
@@ -52,4 +52,8 @@ button{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+a{
+  color: black;
+  font-size: 20px;
 }
