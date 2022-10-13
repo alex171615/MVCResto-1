@@ -12,7 +12,8 @@
 <body>
     <form asp-action="AltaRestaurante" method="post">
     <div asp-validation-summary="All"></div>
-    <div>
+    <div class="cons">
+        <div>
         <label asp-for="Nombre">Nombre:</label>
         <input asp-for="Nombre">
     </div>
@@ -31,6 +32,8 @@
     <div>
         <label asp-for="Contrasenia">Contrasenia:</label>
         <input asp-for="Contrasenia" type="password">
+    </div>
+
     </div>
     <button type="submit">Alta Restaurante</button>
     </form>
