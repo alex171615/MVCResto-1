@@ -44,6 +44,9 @@ input{
   align-items: center;
 }
 button{
+  background-color: white;
+  opacity: 0.80;
+  border-radius: 2rem;
   color: black;
   font-size: 20px;
   width: 100%;
@@ -60,13 +63,14 @@ a{
   
 }
 .cons{
-  background-color: #EBEBEB;
+  border-radius: 2rem;
+  background-color: white;
+  opacity: 0.80;
   max-width: 600px;
-  color: black;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
+
