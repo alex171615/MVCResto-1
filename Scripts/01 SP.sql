@@ -52,11 +52,11 @@ BEGIN
 END $$
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS eliminarEstudio $$
-CREATE PROCEDURE eliminarEstudio(unIdEstudio int)
+DROP PROCEDURE IF EXISTS EliminarRestaurante $$
+CREATE PROCEDURE EliminarRestaurante(out unidRestaurante SMALLINT)
 BEGIN
-    DELETE FROM Estudio
-    WHERE idEstudio = unIdEstudio;
+    DELETE FROM Restaurante
+    WHERE idRestaurante =idRestaurante;
 END $$
 
 
@@ -71,7 +71,7 @@ BEGIN
         Mail = unMail
         Telefono = unTelefono
         Contrasenia = unaContrasenia
-    WHERE idRestaurante =idRestaurante
+    WHERE idRestaurante =idRestaurante;
 END $$
 
 
