@@ -11,7 +11,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         {
             Tabla = "Restaurante";
         }
-        
+
         public override Restaurante ObjetoDesdeFila(DataRow fila)
         => new Restaurante()
         {
@@ -25,7 +25,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         public void AltaRestaurante(Restaurante restaurante)
             => EjecutarComandoCon("altaRestaurante", ConfigurarAltaRestaurante, PostAltaRestaurante, restaurante);
 
-        private void ConfigurarAltaRestaurante(Restaurante restaurante)
+        public void ConfigurarAltaRestaurante(Restaurante restaurante)
         {
             SetComandoSP("altaRestaurante");
 
@@ -60,8 +60,56 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                     .AgregarParametro();
 
         }
+        public void ConfigurarBajaRestaurante(Restaurante restaurante)
+        {
+            SetComandoSP("EliminarRestaurante");
 
-        private Restaurante RestaurantePorId(int Id)
+            BP.CrearParametroSalida("unidRestaurante")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+                    .SetValor(restaurante.Id)
+                    .AgregarParametro();
+
+        }
+        public void ConfigurarActualzacionRestaurante(Restaurante restaurante)
+        {
+            SetComandoSP("ActualizarRestaurante");
+
+            BP.CrearParametroSalida("unidRestaurante")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+                    .SetValor(restaurante.Id)
+                    .AgregarParametro();
+
+            BP.CrearParametro("unNombre")
+                    .SetTipoVarchar(45)
+                    .SetValor(restaurante.Nombre)
+                    .AgregarParametro();
+
+            BP.CrearParametro("unaDireccion")
+                    .SetTipoVarchar(45)
+                    .SetValor(restaurante.Direccion)
+                    .AgregarParametro();
+
+            BP.CrearParametro("unMail")
+                    .SetTipoVarchar(45)
+                    .SetValor(restaurante.Mail)
+                    .AgregarParametro();
+
+            BP.CrearParametro("unTelefono")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+                    .SetValor(restaurante.Telefono)
+                    .AgregarParametro();
+
+            BP.CrearParametro("unaContrasenia")
+                    .SetTipoVarchar(64)
+                    .SetValor(restaurante.Contrasenia)
+                    .AgregarParametro();
+        }
+        public void EliminarRestaurante(Restaurante restaurante)
+            => EjecutarComandoCon("EliminarRestaurante", ConfigurarBajaRestaurante, restaurante);
+        public void ActualizarRestaurante(Restaurante restaurante)
+            => EjecutarComandoCon("ActualizarRestaurante", ConfigurarActualzacionRestaurante, restaurante);
+
+        public Restaurante RestaurantePorId(int Id)
         {
             SetComandoSP("RestaurantePorId");
 
@@ -72,7 +120,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
 
             return ElementoDesdeSP();
         }
-        private Restaurante restoPorPass(string Mail ,string Contrasenia)
+        public Restaurante restoPorPass(string Mail, string Contrasenia)
         {
             SetComandoSP("restoPorPass");
 
@@ -80,7 +128,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                 .SetTipoVarchar(45)
                 .SetValor(Mail)
                 .AgregarParametro();
-            
+
             BP.CrearParametro("unaContrasenia")
                 .SetTipoVarchar(64)
                 .SetValor(Contrasenia)
@@ -89,12 +137,14 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             return ElementoDesdeSP();
 
         }
-        private void PostAltaRestaurante(Restaurante restaurante)
+        public void PostAltaRestaurante(Restaurante restaurante)
         {
             var paramIdRestaurante = GetParametro("unidRestaurante");
             restaurante.Id = Convert.ToInt32(paramIdRestaurante.Value);
         }
         public List<Restaurante> ObtenerRestaurante() => ColeccionDesdeTabla();
+
+
     }
 
 }
