@@ -41,3 +41,33 @@ BEGIN
       AND sha2(unaContrasenia, 256) = contrasenia; 
 END $$
 
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS llamarEstudio $$
+CREATE PROCEDURE llamarEstudio(unIdEstudio int)
+BEGIN
+    SELECT *
+    FROM Estudio
+    WHERE idEstudio = unIdEstudio;
+END $$
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS eliminarEstudio $$
+CREATE PROCEDURE eliminarEstudio(unIdEstudio int)
+BEGIN
+    DELETE FROM Estudio
+    WHERE idEstudio = unIdEstudio;
+END $$
+
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS ActualizarRestaurante $$
+CREATE PROCEDURE ActualizarRestaurante(out unidRestaurante SMALLINT, unNombre VARCHAR(45), unaDireccion VARCHAR(45), unMail VARCHAR(45), unTelefono INT, unaContrasenia VARCHAR(64))
+BEGIN
+    UPDATE REss
+    SET Nombre = unNombre,
+        Domicilio = unDomicilio
+    WHERE idEstudio = unIdEstudio;
+END $$
+
+
