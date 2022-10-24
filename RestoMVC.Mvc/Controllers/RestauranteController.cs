@@ -24,18 +24,11 @@ namespace RestoMVC.Mvc.Controllers
             Ado.AltaRestaurante(restaurante);
             return RedirectToAction(nameof(Index));
         }
-        [HttpGet]
+        [HttpPost]
         public IActionResult EliminarRestaurante(Restaurante restaurante)
         {
-            autor = Ado.RestaurantePorId(autor.Id);
+            restaurante = Ado.EliminarRestaurante(restaurante);
 
-            if (autor is null)
-             {
-            return NotFound();
-            }
-             else
-            Ado.EliminarRestaurante(autor);
-            return Redirect(nameof(Index));
 
         }
     }

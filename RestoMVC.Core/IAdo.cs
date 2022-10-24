@@ -8,6 +8,9 @@ namespace RestoMVC.Core
     {
         void AltaRestaurante(Restaurante restaurante);
         List<Restaurante> ObtenerRestaurante();
+
+        void EliminarRestaurante(Restaurante restaurante);
+        void ActualizarRestaurante(Restaurante restaurante);
         
     }
 }

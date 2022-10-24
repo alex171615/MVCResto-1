@@ -117,7 +117,6 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                 .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
                 .SetValor(Id)
                 .AgregarParametro();
-
             return ElementoDesdeSP();
         }
         public Restaurante restoPorPass(string Mail, string Contrasenia)
