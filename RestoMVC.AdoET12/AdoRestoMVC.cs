@@ -23,11 +23,6 @@ namespace RestoMVC.AdoET12
 
         public void ActualizarRestaurante(Restaurante restaurante) => MapRestaurante.ActualizarRestaurante(restaurante);
 
-        public Restaurante RestaurantePorId(int id)
-        {
-            return MapRestaurante.RestaurantePorId(id);
-        }
-
 
     }
 }

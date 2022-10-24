@@ -8,11 +8,10 @@ namespace RestoMVC.Mvc.Controllers
     {
         private readonly IAdo Ado;
         public RestauranteController(IAdo ado) => Ado = ado;
-
-        [HttpGet]
         public IActionResult Index()
         {
-            return View("Listado", Ado.ObtenerRestaurante());
+            var restaurantes = Ado.ObtenerRestaurante();
+            return View("Listado", restaurantes);
         }
         [HttpGet]
         public IActionResult AltaRestaurante()
@@ -23,13 +22,16 @@ namespace RestoMVC.Mvc.Controllers
         public IActionResult AltaRestaurante(Restaurante restaurante)
         {
             Ado.AltaRestaurante(restaurante);
-            return View("Listado", Ado.ObtenerRestaurante());
+            return RedirectToAction(nameof(Index));
         }
         [HttpGet]
-        public IActionResult EliminarRestaurante(Restaurante restaurante)
+        public IActionResult AcutalizarRestaurante(int? Id)
         {
-            restaurante = Ado.
-        }
+            if (Id is null || Id == 0)
+            {
+                return NotFound();
+            }
 
+        }
     }
 }
