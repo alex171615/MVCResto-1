@@ -25,12 +25,17 @@ namespace RestoMVC.Mvc.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
-        public IActionResult AcutalizarRestaurante(int? Id)
+        public IActionResult EliminarRestaurante(Restaurante restaurante)
         {
-            if (Id is null || Id == 0)
-            {
-                return NotFound();
+            autor = Ado.RestaurantePorId(autor.Id);
+
+            if (autor is null)
+             {
+            return NotFound();
             }
+             else
+            Ado.EliminarRestaurante(autor);
+            return Redirect(nameof(Index));
 
         }
     }
