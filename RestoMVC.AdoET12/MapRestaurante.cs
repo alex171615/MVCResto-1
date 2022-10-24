@@ -62,7 +62,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         }
         public void ConfigurarBajaRestaurante(Restaurante restaurante)
         {
-            SetComandoSP("EliminarRestaurante");
+            SetComandoSP("eliminarRestaurante");
 
             BP.CrearParametroSalida("unidRestaurante")
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
@@ -72,7 +72,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         }
         public void ConfigurarActualzacionRestaurante(Restaurante restaurante)
         {
-            SetComandoSP("ActualizarRestaurante");
+            SetComandoSP("actualizarRestaurante");
 
             BP.CrearParametroSalida("unidRestaurante")
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
@@ -105,13 +105,13 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                     .AgregarParametro();
         }
         public void EliminarRestaurante(Restaurante restaurante)
-            => EjecutarComandoCon("EliminarRestaurante", ConfigurarBajaRestaurante, restaurante);
+            => EjecutarComandoCon("eliminarRestaurante", ConfigurarBajaRestaurante, restaurante);
         public void ActualizarRestaurante(Restaurante restaurante)
-            => EjecutarComandoCon("ActualizarRestaurante", ConfigurarActualzacionRestaurante, restaurante);
+            => EjecutarComandoCon("actualizarRestaurante", ConfigurarActualzacionRestaurante, restaurante);
 
         public Restaurante RestaurantePorId(int Id)
         {
-            SetComandoSP("RestaurantePorId");
+            SetComandoSP("restaurantePorId");
 
             BP.CrearParametro("unidRestaurante")
                 .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)

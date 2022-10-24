@@ -43,16 +43,16 @@ END $$
 
 DELIMITER $$
 
-DROP PROCEDURE IF EXISTS llamarEstudio $$
-CREATE PROCEDURE llamarEstudio(unIdEstudio int)
+DROP PROCEDURE IF EXISTS $$
+CREATE PROCEDURE llamarRestaurante(out unidRestaurante SMALLINT)
 BEGIN
     SELECT *
-    FROM Estudio
-    WHERE idEstudio = unIdEstudio;
+    FROM Restaurante
+    WHERE idRestaurante =idRestaurante;
 END $$
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS EliminarRestaurante $$
+DROP PROCEDURE IF EXISTS eliminarRestaurante $$
 CREATE PROCEDURE EliminarRestaurante(out unidRestaurante SMALLINT)
 BEGIN
     DELETE FROM Restaurante
@@ -61,7 +61,7 @@ END $$
 
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS ActualizarRestaurante $$
+DROP PROCEDURE IF EXISTS actualizarRestaurante $$
 CREATE PROCEDURE ActualizarRestaurante(out unidRestaurante SMALLINT, unNombre VARCHAR(45), unaDireccion VARCHAR(45), unMail VARCHAR(45), unTelefono INT, unaContrasenia VARCHAR(64))
 BEGIN
     UPDATE RestaurantePorId
