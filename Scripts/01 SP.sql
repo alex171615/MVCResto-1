@@ -64,10 +64,14 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS ActualizarRestaurante $$
 CREATE PROCEDURE ActualizarRestaurante(out unidRestaurante SMALLINT, unNombre VARCHAR(45), unaDireccion VARCHAR(45), unMail VARCHAR(45), unTelefono INT, unaContrasenia VARCHAR(64))
 BEGIN
-    UPDATE REss
-    SET Nombre = unNombre,
-        Domicilio = unDomicilio
-    WHERE idEstudio = unIdEstudio;
+    UPDATE RestaurantePorId
+    SET idRestaurante = unidRestaurante,
+        Nombre = unNombre
+        Direccion = unaDireccion
+        Mail = unMail
+        Telefono = unTelefono
+        Contrasenia = unaContrasenia
+    WHERE idRestaurante =idRestaurante
 END $$
 
 
