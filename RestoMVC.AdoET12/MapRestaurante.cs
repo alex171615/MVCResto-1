@@ -142,6 +142,17 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             restaurante.Id = Convert.ToInt32(paramIdRestaurante.Value);
         }
         public List<Restaurante> ObtenerRestaurante() => ColeccionDesdeTabla();
+        public Restaurante RestaurantePorID(int Id)
+        {
+            SetComandoSP("llamarAutor");
+
+            BP.CrearParametro("unidAutor")
+              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+              .SetValor(Id)
+              .AgregarParametro();
+
+            return ElementoDesdeSP();
+        }
 
 
     }
