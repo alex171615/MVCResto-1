@@ -27,7 +27,15 @@ namespace RestoMVC.Mvc.Controllers
         [HttpPost]
         public IActionResult EliminarRestaurante(Restaurante restaurante)
         {
-            restaurante = Ado.EliminarRestaurante(restaurante);
+            restaurante = Ado.RestaurantePorId(restaurante.Id);
+            if (restaurante is null)
+            {
+            return NotFound();
+        }
+        else
+            Ado.EliminarRestaurante(restaurante);
+        return Redirect(nameof(Index));
+
 
 
         }

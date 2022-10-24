@@ -16,7 +16,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         public MapPlato(AdoAGBD ado) : base(ado) => Tabla = "Plato";
         public MapPlato(MapCategoria mapCategoria) : this(mapCategoria.AdoAGBD)
         => MapCategoria = mapCategoria;
-         public MapPlato(MapRestaurante mapRestaurante) : this(mapRestaurante.AdoAGBD)
+        public MapPlato(MapRestaurante mapRestaurante) : this(mapRestaurante.AdoAGBD)
         => MapRestaurante = mapRestaurante;
 
 
@@ -42,7 +42,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         {
             SetComandoSP("altaPlato");
 
-            BP.CrearParametro("Id")
+            BP.CrearParametroSalida("Id")
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
                     .SetValor(plato.Id)
                     .AgregarParametro();
