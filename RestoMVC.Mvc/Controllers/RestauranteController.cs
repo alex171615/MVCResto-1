@@ -35,9 +35,24 @@ namespace RestoMVC.Mvc.Controllers
         else
             Ado.EliminarRestaurante(restaurante);
         return Redirect(nameof(Index));
-
-
-
         }
+         [HttpGet]
+        public IActionResult ActualizarRestaurante(Restaurante restaurante)
+        {
+            Restaurante restos = Ado.RestaurantePorId(restaurante.Id);
+            if (restos is null)
+            {
+             return NotFound();
+            }
+            else
+                return View(restos);
+    }
+
+    [HttpPost]
+    public IActionResult ActualizarRestaurantea(Restaurante restaurante)
+    {
+        Ado.ActualizarRestaurante(restaurante);
+        return View("Lista", Ado.ObtenerRestaurante());
+    }
     }
 }

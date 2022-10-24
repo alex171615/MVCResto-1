@@ -11,8 +11,8 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
 {
     public class MapPlato : Mapeador<Plato>
     {
-        public MapCategoria MapCategoria {get; set;}
-        public MapRestaurante MapRestaurante {get; set;}
+        public MapCategoria MapCategoria { get; set; }
+        public MapRestaurante MapRestaurante { get; set; }
         public MapPlato(AdoAGBD ado) : base(ado) => Tabla = "Plato";
         public MapPlato(MapCategoria mapCategoria) : this(mapCategoria.AdoAGBD)
         => MapCategoria = mapCategoria;
@@ -58,16 +58,15 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                     .AgregarParametro();
 
             BP.CrearParametro("unIdRestaurante")
-              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
-              .SetValor(plato.restaurante.Id)
-              .AgregarParametro();
-
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
+                    .SetValor(plato.restaurante.Id)
+                    .AgregarParametro();
 
             BP.CrearParametro("Precio")
-              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
-              .SetValor(plato.Precio)
-              .AgregarParametro();  
-            
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
+                    .SetValor(plato.Precio)
+                    .AgregarParametro();
+
         }
 
 
@@ -76,9 +75,9 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             SetComandoSP("PlatoPorId");
 
             BP.CrearParametro("unId")
-                .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
-                .SetValor(Id)
-                .AgregarParametro();
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+                    .SetValor(Id)
+                    .AgregarParametro();
 
             return ElementoDesdeSP();
         }
