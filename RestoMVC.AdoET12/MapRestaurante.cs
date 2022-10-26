@@ -109,11 +109,11 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         public void ActualizarRestaurante(Restaurante restaurante)
             => EjecutarComandoCon("actualizarRestaurante", ConfigurarActualzacionRestaurante, restaurante);
 
-        public Restaurante RestaurantePorId(int Id)
+        public Restaurante RestaurantePorId(int? Id)
         {
-            SetComandoSP("restaurantePorId");
+            SetComandoSP("RestaurantePorId");
 
-            BP.CrearParametro("unidRestaurante")
+            BP.CrearParametroSalida("unidRestaurante")
                 .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
                 .SetValor(Id)
                 .AgregarParametro();
@@ -142,17 +142,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             restaurante.Id = Convert.ToInt32(paramIdRestaurante.Value);
         }
         public List<Restaurante> ObtenerRestaurante() => ColeccionDesdeTabla();
-        public Restaurante RestaurantePorID(int Id)
-        {
-            SetComandoSP("llamarAutor");
 
-            BP.CrearParametro("unidAutor")
-              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
-              .SetValor(Id)
-              .AgregarParametro();
-
-            return ElementoDesdeSP();
-        }
 
 
     }

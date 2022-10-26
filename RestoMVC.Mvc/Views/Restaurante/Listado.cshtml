@@ -13,6 +13,9 @@
                     <td>
                         <a asp-controller="Restaurante" asp-action="Index" asp-route-id="@restaurante.Id">@restaurante.Nombre</a> 
                     </td>
+                    <td>
+                        <a asp-controller= "Restaurante" asp-action="ActualizarRestaurante" asp-route-id="@restaurante.Id">Actualizar</a>
+                    </td>
                 </tr>
             }
         </tbody>
