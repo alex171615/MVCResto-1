@@ -129,7 +129,6 @@ CREATE PROCEDURE
     ) BEGIN
 UPDATE Restaurante
 SET
-    idRestaurante = unidRestaurante,
     Nombre = unNombre,
     Direccion = unaDireccion,
     Mail = unMail,

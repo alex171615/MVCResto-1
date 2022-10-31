@@ -52,7 +52,7 @@ namespace RestoMVC.Mvc.Controllers
     public IActionResult ActualizarRestaurantea(Restaurante restaurante)
     {
         Ado.ActualizarRestaurante(restaurante);
-        return View("Lista", Ado.ObtenerRestaurante());
+        return View("Listado", Ado.ObtenerRestaurante());
     }
     }
 }

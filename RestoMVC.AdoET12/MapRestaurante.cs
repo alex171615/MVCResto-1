@@ -70,11 +70,11 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                     .AgregarParametro();
 
         }
-        public void ConfigurarActualzacionRestaurante(Restaurante restaurante)
+        public void ConfigurarActualizacionRestaurante(Restaurante restaurante)
         {
             SetComandoSP("actualizarRestaurante");
 
-            BP.CrearParametroSalida("unidRestaurante")
+            BP.CrearParametro("unidRestaurante")
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
                     .SetValor(restaurante.Id)
                     .AgregarParametro();
@@ -107,7 +107,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         public void EliminarRestaurante(Restaurante restaurante)
             => EjecutarComandoCon("eliminarRestaurante", ConfigurarBajaRestaurante, restaurante);
         public void ActualizarRestaurante(Restaurante restaurante)
-            => EjecutarComandoCon("actualizarRestaurante", ConfigurarActualzacionRestaurante, restaurante);
+            => EjecutarComandoCon("actualizarRestaurante", ConfigurarActualizacionRestaurante, restaurante);
 
         public Restaurante RestaurantePorId(int? Id)
         {
