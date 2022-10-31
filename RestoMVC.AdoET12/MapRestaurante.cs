@@ -113,9 +113,9 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         {
             SetComandoSP("RestaurantePorId");
 
-            BP.CrearParametroSalida("unidRestaurante")
+            BP.CrearParametro("unidRestaurante")
                 .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
-                .SetValor(Id)
+                .SetValor(Id.Value)
                 .AgregarParametro();
             return ElementoDesdeSP();
         }

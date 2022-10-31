@@ -37,9 +37,9 @@ namespace RestoMVC.Mvc.Controllers
         return Redirect(nameof(Index));
         }
          [HttpGet]
-        public IActionResult ActualizarRestaurante(Restaurante restaurante)
+        public IActionResult ActualizarRestaurante(int id)
         {
-            Restaurante restos = Ado.RestaurantePorId(restaurante.Id);
+            Restaurante restos = Ado.RestaurantePorId(id);
             if (restos is null)
             {
              return NotFound();
