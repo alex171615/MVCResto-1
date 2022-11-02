@@ -1,6 +1,6 @@
 -- Active: 1632321143175@@127.0.0.1@3306@mvcrestaurante
 
-USE MVCRestaurante; 
+USE MVCRestaurante;
 
 DELIMITER $$
 
@@ -31,10 +31,9 @@ VALUES (
         sha2(unaContrasenia, 256)
     );
 
-SET
-    unidRestaurante = LAST_INSERT_ID();
+SET unidRestaurante = LAST_INSERT_ID();
 
-END $$
+END $$ 
 
 DELIMITER $$
 
@@ -48,10 +47,9 @@ CREATE PROCEDURE
 INSERT INTO Categoria (nombre)
 VALUES (unNombre);
 
-SET
-    unidCategoria = LAST_INSERT_ID();
+SET unidCategoria = LAST_INSERT_ID();
 
-END $$
+END $$ 
 
 DELIMITER $$
 
@@ -79,10 +77,9 @@ VALUES (
         unPrecio
     );
 
-SET
-    unidPlato = LAST_INSERT_ID();
+SET unidPlato = LAST_INSERT_ID();
 
-END $$
+END $$ 
 
 DELIMITER $$
 
@@ -99,8 +96,7 @@ WHERE
     unMail = mail
     AND sha2(unaContrasenia, 256) = contrasenia;
 
-END $$
-
+END $$ 
 
 DELIMITER $$
 
@@ -112,7 +108,7 @@ DELETE FROM Restaurante
 WHERE
     idRestaurante = unidRestaurante;
 
-END $$
+END $$ 
 
 DELIMITER $$
 
@@ -137,15 +133,17 @@ SET
 WHERE
     idRestaurante = unidRestaurante;
 
-END $$
+END $$ 
 
 DELIMITER $$
 
-CREATE PROCEDURE RestaurantePorId(unidRestaurante SMALLINT
-) 
-BEGIN 
+CREATE PROCEDURE RESTAURANTEPORID(UNIDRESTAURANTE SMALLINT
+) BEGIN 
 	SELECT *
 	FROM Restaurante
 	WHERE
 	    idRestaurante = unidRestaurante;
-END $$ 
+	END 
+$ 
+
+$ 

@@ -12,10 +12,13 @@
 </head>
 
 <body>
-    <form asp-action="ActualizarRestaurantea" method="post">
+    <form asp-action="ActualizarRestaurante" method="post">
         <div asp-validation-summary="All"></div>
         <div>
             <div class="cons">
+                <div>
+                    <input asp-for="@Model.Id" type="hidden">
+                </div>
                 <div>
                     <label asp-for="Nombre">Nombre:</label>
                     <input asp-for="Nombre">
@@ -37,7 +40,7 @@
                     <input asp-for="Contrasenia" type="password">
                 </div>
                 <div>
-                    
+
                 </div>
             </div>
             <button type="submit">Actualizar</button>
