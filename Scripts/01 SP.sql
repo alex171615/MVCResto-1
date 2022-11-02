@@ -104,8 +104,7 @@ DROP PROCEDURE
     IF EXISTS eliminarRestaurante $$
 CREATE PROCEDURE
     EliminarRestaurante(out unidRestaurante SMALLINT) BEGIN
-DELETE *
-FROM Restaurante
+DELETE FROM Restaurante
 WHERE
     idRestaurante = unidRestaurante;
 
