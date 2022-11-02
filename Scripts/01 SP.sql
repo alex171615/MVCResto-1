@@ -137,7 +137,8 @@ END $$
 
 DELIMITER $$
 
-DROP PROCEDURE IF EXISTS RestaurantePorId (
+DROP PROCEDURE IF EXISTS RestaurantePorId $$
+CREATE PROCEDURE RestaurantePorId(
     unidRestaurante SMALLINT
 )BEGIN 
 	SELECT *
