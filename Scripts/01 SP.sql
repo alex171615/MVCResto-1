@@ -133,17 +133,15 @@ SET
 WHERE
     idRestaurante = unidRestaurante;
 
-END $$ 
+END $$  
 
 DELIMITER $$
 
-CREATE PROCEDURE RESTAURANTEPORID(UNIDRESTAURANTE SMALLINT
-) BEGIN 
+DROP PROCEDURE IF EXISTS RestaurantePorId (
+    unidRestaurante SMALLINT
+)BEGIN 
 	SELECT *
 	FROM Restaurante
 	WHERE
 	    idRestaurante = unidRestaurante;
-	END 
-$ 
-
-$ 
+END $$
