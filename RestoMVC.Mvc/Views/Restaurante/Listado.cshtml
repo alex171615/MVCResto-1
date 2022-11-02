@@ -11,10 +11,16 @@
             {
                 <tr>
                     <td>
-                        <a asp-controller="Restaurante" asp-action="Index" asp-route-id="@restaurante.Id">@restaurante.Nombre</a> 
+                        <a asp-controller="Restaurante" asp-action="Index"
+                        asp-route-id="@restaurante.Id">@restaurante.Nombre</a>
                     </td>
                     <td>
-                        <a asp-controller= "Restaurante" asp-action="ActualizarRestaurante" asp-route-id="@restaurante.Id">Actualizar</a>
+                        <a asp-controller="Restaurante" asp-action="ActualizarRestaurante"
+                        asp-route-id="@restaurante.Id">Actualizar</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Restauarnte" asp-action="ElimarRestaurante"
+                        asp-route-id="@restaurante.Id">Eliminar</a>
                     </td>
                 </tr>
             }

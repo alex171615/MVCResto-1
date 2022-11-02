@@ -68,7 +68,6 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
                     .SetValor(restaurante.Id)
                     .AgregarParametro();
-
         }
         public void ConfigurarActualizacionRestaurante(Restaurante restaurante)
         {
