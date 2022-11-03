@@ -103,7 +103,7 @@ DELIMITER $$
 DROP PROCEDURE
     IF EXISTS eliminarRestaurante $$
 CREATE PROCEDURE
-    EliminarRestaurante(out unidRestaurante SMALLINT) BEGIN
+    eliminarRestaurante(out unidRestaurante SMALLINT) BEGIN
 DELETE *
 FROM Restaurante
 WHERE
