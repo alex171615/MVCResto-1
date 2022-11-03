@@ -64,7 +64,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         {
             SetComandoSP("eliminarRestaurante");
 
-            BP.CrearParametroSalida("unidRestaurante")
+            BP.CrearParametro("unidRestaurante")
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
                     .SetValor(restaurante.Id)
                     .AgregarParametro();
