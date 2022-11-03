@@ -8,4 +8,5 @@ call altaRestaurante(@idLoroburguer,'el loro burger', 'av.libertador270','lorobu
 call altaRestaurante(@idLoroSandWich,'el loro Sandwich', 'av.libertador270','loroSandwich@gmail.com', 1123456789,'1234');
 call altaPlato(@idPlato,1,1,'Hamburguesa triple con salsa chedar', 92.9);
 
+
 call restoPorPass('loroburger@gmail.com', '1234');

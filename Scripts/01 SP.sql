@@ -98,8 +98,6 @@ WHERE
 
 END $$ 
 
-DELIMITER $$
-
 DROP PROCEDURE
     IF EXISTS eliminarRestaurante $$
 CREATE PROCEDURE
