@@ -104,7 +104,7 @@ CREATE PROCEDURE
     eliminarRestaurante(unidRestaurante SMALLINT)
     BEGIN
     DELETE FROM Plato 
-    WHERE idPlato = OLD.idPlato;
+    WHERE idPlato = idPlato;
 DELETE FROM Restaurante
 WHERE
     idRestaurante = unidRestaurante;
