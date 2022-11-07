@@ -101,7 +101,10 @@ END $$
 DROP PROCEDURE
     IF EXISTS eliminarRestaurante $$
 CREATE PROCEDURE
-    eliminarRestaurante(unidRestaurante SMALLINT) BEGIN
+    eliminarRestaurante(unidRestaurante SMALLINT)
+    BEGIN
+    DELETE FROM Plato 
+    WHERE idPlato = OLD.idPlato;
 DELETE FROM Restaurante
 WHERE
     idRestaurante = unidRestaurante;
