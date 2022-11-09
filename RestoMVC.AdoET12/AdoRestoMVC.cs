@@ -15,17 +15,19 @@ namespace RestoMVC.AdoET12
             Ado = ado;
             MapRestaurante = new MapRestaurante(Ado);
         }
-        public void AltaRestaurante(Restaurante restaurante) => MapRestaurante.AltaRestaurante(restaurante);
+        public async Task AltaRestauranteAsync(Restaurante restaurante) => await MapRestaurante.AltaRestauranteAsync(restaurante);
 
-        public List<Restaurante> ObtenerRestaurante() => MapRestaurante.ObtenerRestaurante();
+        public async Task<List<Restaurante>> ObtenerRestauranteAsync() => await MapRestaurante.ObtenerRestauranteAsync();
 
-        public void EliminarRestaurante(Restaurante restaurante) => MapRestaurante.EliminarRestaurante(restaurante);
+        public async Task<Restaurante> RestaurantePoridAsync(int id) => await MapRestaurante.RestaurantePorIdAsync(id);
 
-        public void ActualizarRestaurante(Restaurante restaurante) => MapRestaurante.ActualizarRestaurante(restaurante);
-        
-        public Restaurante RestaurantePorId(int id)
+        public async Task EliminarRestauranteAsync(Restaurante restaurante) => await MapRestaurante.EliminarRestauranteAsync(restaurante);
+
+        public async Task ActualizarRestauranteAsync(Restaurante restaurante) => await MapRestaurante.ActualizarRestauranteAsync(restaurante);
+
+        public async Task<Restaurante> RestaurantePorIdAsync(int id)
         {
-            return MapRestaurante.RestaurantePorId(id);
+            return await MapRestaurante.RestaurantePorIdAsync(id);
         }
 
 
