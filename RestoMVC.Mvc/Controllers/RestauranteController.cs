@@ -56,13 +56,15 @@ namespace RestoMVC.Mvc.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]
-        public ActionResult Login(Tuple<string, string> userPass)
+        public ActionResult Login(Restaurante resto)
         {
-            var log = Ado.restoPorPass(userPass.Item2, userPass.Item2);
+            var log = Ado.restoPorPass(resto.Contrasenia , resto.Mail);
             if (log is null)
+            {
                 return NotFound();
-
-            return View();
+            }
+                
+            return View(log);
         }
     }
 }

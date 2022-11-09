@@ -18,10 +18,8 @@
                     </div>
                     <div>
                         <td>
-                        <form asp-controller="Restaurante" asp-action="ActualizarRestaurante" method="post">
-                            <input type="hidden" asp-for="@restaurante.Id">
-                            <button type="submit"><b>Actualizar</b></button>
-                        </form>
+                        <a asp-controller="Restaurante" asp-action="ActualizarRestaurante"
+                        asp-route-id="@restaurante.Id"><button type="submit"><b>Actualizar</b></button></a>
                     </td>
                     </div>
                     <div>

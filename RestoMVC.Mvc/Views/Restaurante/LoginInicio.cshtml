@@ -1,4 +1,4 @@
-@model Tuple<string, string>
+@model RestoMVC.Core.Restaurante;
 @{
     Layout = null;
 }
@@ -8,7 +8,7 @@
 <head>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <title>Actualizar - Resto</title>
+    <title>Login - Resto</title>
 </head>
 
 <body>
@@ -17,12 +17,12 @@
         <div>
             <div class="cons">
                 <div>
-                    <label asp-for="Item1">Mail:</label>
-                    <input asp-for="Item1">
+                    <label asp-for="Mail">Mail:</label>
+                    <input asp-for="Mail">
                 </div>
                 <div>
-                    <label asp-for="Item2">Contrasenia:</label>
-                    <input asp-for="Item2" type="password">
+                    <label asp-for="Contrasenia">Contrasenia:</label>
+                    <input asp-for="Contrasenia" type="password">
                 </div>
                 <div>
 

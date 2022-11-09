@@ -119,7 +119,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                 .AgregarParametro();
             return ElementoDesdeSP();
         }
-        public Restaurante restoPorPass(string Mail, string Contrasenia)
+        public Restaurante? restoPorPass(string? Mail, string? Contrasenia)
         {
             SetComandoSP("restoPorPass");
 
@@ -133,7 +133,16 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                 .SetValor(Contrasenia)
                 .AgregarParametro();
 
-            return ElementoDesdeSP();
+            Restaurante? resto;
+            try
+            {
+                resto = ElementoDesdeSP();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                resto = null;
+            }
+            return resto;
 
         }
         public void PostAltaRestaurante(Restaurante restaurante)
