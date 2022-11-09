@@ -151,9 +151,6 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             restaurante.Id = Convert.ToInt32(paramIdRestaurante.Value);
         }
         public List<Restaurante> ObtenerRestaurante() => ColeccionDesdeTabla();
-
-
-
     }
 
 }

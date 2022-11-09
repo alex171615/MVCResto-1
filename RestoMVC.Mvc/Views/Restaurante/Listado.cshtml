@@ -27,12 +27,12 @@
                             <form asp-controller="Restaurante" asp-action="EliminarRestaurante" method="post">
                             <input type="hidden" asp-for="@restaurante.Id">
                             <button type="submit"><b>Eliminar</b></button>
-                        </form>
+                            </form>
                     </td>
                     </div>
                     <div>
                         <td>
-                            <form asp-controller="Restaurante" asp-action="Login" method="post">
+                            <form asp-controller="Restaurante" asp-action="Login" method="get">
                             <input type="hidden" asp-for="@restaurante.Id">
                             <button type="submit"><b>VerResto</b></button>
                             </form>

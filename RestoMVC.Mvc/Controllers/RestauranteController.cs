@@ -51,7 +51,6 @@ namespace RestoMVC.Mvc.Controllers
         [HttpPost]
         public IActionResult ActualizarRestaurante(Restaurante restaurante)
         {
-
             Ado.ActualizarRestaurante(restaurante);
             return RedirectToAction(nameof(Index));
         }
@@ -60,11 +59,8 @@ namespace RestoMVC.Mvc.Controllers
         {
             var log = Ado.restoPorPass(resto.Contrasenia , resto.Mail);
             if (log is null)
-            {
                 return NotFound();
-            }
-                
-            return View(log);
+            return View();
         }
     }
 }
