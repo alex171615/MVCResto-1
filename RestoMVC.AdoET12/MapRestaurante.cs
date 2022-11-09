@@ -22,8 +22,8 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             Telefono = Convert.ToInt32(fila["telefono"]),
             Contrasenia = fila["contrasenia"].ToString()
         };
-        public void AltaRestaurante(Restaurante restaurante)
-            => EjecutarComandoCon("altaRestaurante", ConfigurarAltaRestaurante, PostAltaRestaurante, restaurante);
+        public async Task AltaRestauranteAsync(Restaurante restaurante)
+            => await EjecutarComandoAsync("altaRestaurante", ConfigurarAltaRestaurante, PostAltaRestaurante, restaurante);
 
         public void ConfigurarAltaRestaurante(Restaurante restaurante)
         {
@@ -104,12 +104,12 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                     .SetValor(restaurante.Contrasenia)
                     .AgregarParametro();
         }
-        public void EliminarRestaurante(Restaurante restaurante)
-            => EjecutarComandoCon("eliminarRestaurante", ConfigurarBajaRestaurante, restaurante);
-        public void ActualizarRestaurante(Restaurante restaurante)
-            => EjecutarComandoCon("actualizarRestaurante", ConfigurarActualizacionRestaurante, restaurante);
+        public async Task EliminarRestauranteAsync(Restaurante restaurante)
+            => await EjecutarComandoAsync("eliminarRestaurante", ConfigurarBajaRestaurante, restaurante);
+        public async Task ActualizarRestauranteAsync(Restaurante restaurante)
+            => await EjecutarComandoAsync("actualizarRestaurante", ConfigurarActualizacionRestaurante, restaurante);
 
-        public Restaurante RestaurantePorId(int? Id)
+        public async Task<Restaurante> RestaurantePorIdAsync(int? Id)
         {
             SetComandoSP("RestaurantePorId");
 
@@ -117,9 +117,13 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                 .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
                 .SetValor(Id.Value)
                 .AgregarParametro();
-            return ElementoDesdeSP();
+            return await ElementoDesdeSPAsync();
         }
+
         public Restaurante? restoPorPass(string? Mail, string? Contrasenia)
+
+        public async Task<Restaurante> restoPorPassAsync(string Mail, string Contrasenia)
+
         {
             SetComandoSP("restoPorPass");
 
@@ -132,7 +136,6 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                 .SetTipoVarchar(64)
                 .SetValor(Contrasenia)
                 .AgregarParametro();
-
             Restaurante? resto;
             try
             {
@@ -143,6 +146,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                 resto = null;
             }
             return resto;
+            return await ElementoDesdeSPAsync();
 
         }
         public void PostAltaRestaurante(Restaurante restaurante)
@@ -151,6 +155,9 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             restaurante.Id = Convert.ToInt32(paramIdRestaurante.Value);
         }
         public List<Restaurante> ObtenerRestaurante() => ColeccionDesdeTabla();
-    }
+        public async Task<List<Restaurante>> ObtenerRestauranteAsync() => await ColeccionDesdeTablaAsync();
+
+
+    
 
 }

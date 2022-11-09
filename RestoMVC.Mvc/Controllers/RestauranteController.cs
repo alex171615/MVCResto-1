@@ -8,38 +8,50 @@ namespace RestoMVC.Mvc.Controllers
     {
         private readonly IAdo Ado;
         public RestauranteController(IAdo ado) => Ado = ado;
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var restaurantes = Ado.ObtenerRestaurante();
+            var restaurantes = await Ado.ObtenerRestauranteAsync();
             return View("Listado", restaurantes);
         }
+
+
+
         [HttpGet]
         public IActionResult AltaRestaurante()
         {
             return View();
         }
+
+
+
         [HttpPost]
-        public IActionResult AltaRestaurante(Restaurante restaurante)
+        public async Task<IActionResult> AltaRestaurante(Restaurante restaurante)
         {
-            Ado.AltaRestaurante(restaurante);
+            await Ado.AltaRestauranteAsync(restaurante);
             return RedirectToAction(nameof(Index));
         }
+
+
+
         [HttpPost]
-        public IActionResult EliminarRestaurante(Restaurante restaurante)
+        public async Task<IActionResult> EliminarRestaurante(Restaurante restaurante)
         {
-            restaurante = Ado.RestaurantePorId(restaurante.Id);
+            restaurante = await Ado.RestaurantePorIdAsync(restaurante.Id);
             if (restaurante is null)
             {
                 return NotFound();
             }
             else
-                Ado.EliminarRestaurante(restaurante);
+                await Ado.EliminarRestauranteAsync(restaurante);
             return RedirectToAction(nameof(Index));
         }
+
+
+
         [HttpGet]
-        public IActionResult ActualizarRestaurante(int id)
+        public async Task<IActionResult> ActualizarRestaurante(int id)
         {
-            Restaurante restos = Ado.RestaurantePorId(id);
+            Restaurante restos = await Ado.RestaurantePorIdAsync(id);
             if (restos is null)
             {
                 return NotFound();
@@ -48,10 +60,13 @@ namespace RestoMVC.Mvc.Controllers
                 return View(restos);
         }
 
+
+
         [HttpPost]
-        public IActionResult ActualizarRestaurante(Restaurante restaurante)
+        public async Task<IActionResult> ActualizarRestaurante(Restaurante restaurante)
         {
             Ado.ActualizarRestaurante(restaurante);
+            await Ado.ActualizarRestauranteAsync(restaurante);
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]
