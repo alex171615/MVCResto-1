@@ -145,7 +145,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             {
                 resto = null;
             }
-            return resto;
+            
             return await ElementoDesdeSPAsync();
 
         }
