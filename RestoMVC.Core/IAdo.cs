@@ -12,6 +12,7 @@ namespace RestoMVC.Core
         void EliminarRestaurante(Restaurante restaurante);
         void ActualizarRestaurante(Restaurante restaurante);
         Restaurante RestaurantePorId(int Id);
-        
+        Restaurante restoPorPass(string contrasenia, string mail);
+
     }
 }

@@ -55,6 +55,14 @@ namespace RestoMVC.Mvc.Controllers
             Ado.ActualizarRestaurante(restaurante);
             return RedirectToAction(nameof(Index));
         }
+        [HttpPost]
+        public ActionResult Login(Tuple<string, string> userPass)
+        {
+            var log = Ado.restoPorPass(userPass.Item2, userPass.Item2);
+            if (log is null)
+                return NotFound();
 
+            return View();
+        }
     }
 }

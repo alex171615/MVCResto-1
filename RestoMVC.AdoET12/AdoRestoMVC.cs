@@ -28,6 +28,9 @@ namespace RestoMVC.AdoET12
             return MapRestaurante.RestaurantePorId(id);
         }
 
-
+        public Restaurante restoPorPass(string contrasenia, string mail)
+        {
+            return MapRestaurante.restoPorPass(contrasenia , mail);
+        }
     }
 }

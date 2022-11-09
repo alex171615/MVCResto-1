@@ -10,18 +10,36 @@
             @foreach (Restaurante restaurante in Model)
             {
                 <tr>
-                    <td>
-                        <a asp-controller="Restaurante" asp-action="Index" asp-route-id="@restaurante.Id">@restaurante.Nombre</a> 
+                    <div>
+                        <td>
+                        <a asp-controller="Restaurante" asp-action="Index"
+                        asp-route-id="@restaurante.Id">@restaurante.Nombre</a>
                     </td>
-                    <td>
-                        <a asp-controller= "Restaurante" asp-action="ActualizarRestaurante" asp-route-id="@restaurante.Id">Actualizar</a>
-                    </td>
-                    <td>
-                        <form asp-controller="Restaurante" asp-action="EliminarRestaurante" method="post">
+                    </div>
+                    <div>
+                        <td>
+                        <form asp-controller="Restaurante" asp-action="ActualizarRestaurante" method="post">
                             <input type="hidden" asp-for="@restaurante.Id">
-                            <button type="submit" ><b>Eliminar</b></button>
+                            <button type="submit"><b>Actualizar</b></button>
                         </form>
                     </td>
+                    </div>
+                    <div>
+                        <td>
+                            <form asp-controller="Restaurante" asp-action="EliminarRestaurante" method="post">
+                            <input type="hidden" asp-for="@restaurante.Id">
+                            <button type="submit"><b>Eliminar</b></button>
+                        </form>
+                    </td>
+                    </div>
+                    <div>
+                        <td>
+                            <form asp-controller="Restaurante" asp-action="Login" method="post">
+                            <input type="hidden" asp-for="@restaurante.Id">
+                            <button type="submit"><b>VerResto</b></button>
+                            </form>
+                        </td>
+                    </div>
                 </tr>
             }
         </tbody>

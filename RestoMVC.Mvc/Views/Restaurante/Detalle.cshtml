@@ -1,0 +1,21 @@
+@model RestoMVC.Core.Restaurante
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RestoMVC - Detalle @Model.Nombre</title>
+</head>
+<body>
+    <div>
+        <h3>@Model.Nombre</h3>
+        Direccion: @Model.Direccion<br>
+        Mail: @Model.Mail
+        Telefono: @Model.Telefono
+        <br/>
+    </div>
+    <a asp-controller="Restaurantes" asp-action="Index">Restaurantes</a>
+    <a asp-action="Index">Restaurantes</a>
+</body>
+</html>

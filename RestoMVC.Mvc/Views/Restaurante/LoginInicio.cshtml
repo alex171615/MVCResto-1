@@ -1,0 +1,37 @@
+@model Tuple<string, string>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <title>Actualizar - Resto</title>
+</head>
+
+<body>
+    <form asp-action="Login" method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <div class="cons">
+                <div>
+                    <label asp-for="Item1">Mail:</label>
+                    <input asp-for="Item1">
+                </div>
+                <div>
+                    <label asp-for="Item2">Contrasenia:</label>
+                    <input asp-for="Item2" type="password">
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <button type="submit">IniciarSesion</button>
+        </div>
+    </form>
+
+</body>
+
+</html>
