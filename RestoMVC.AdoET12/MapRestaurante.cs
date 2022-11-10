@@ -120,9 +120,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             return await ElementoDesdeSPAsync();
         }
 
-        public Restaurante? restoPorPass(string? Mail, string? Contrasenia)
-
-        public async Task<Restaurante> restoPorPassAsync(string Mail, string Contrasenia)
+        public async Task<Restaurante?> restoPorPassAsync(string? Mail, string? Contrasenia)
 
         {
             SetComandoSP("restoPorPass");
@@ -154,9 +152,10 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             var paramIdRestaurante = GetParametro("unidRestaurante");
             restaurante.Id = Convert.ToInt32(paramIdRestaurante.Value);
         }
-        public List<Restaurante> ObtenerRestaurante() => ColeccionDesdeTabla();
         public async Task<List<Restaurante>> ObtenerRestauranteAsync() => await ColeccionDesdeTablaAsync();
+        public async Task<List<Restaurante>> ObtenerRestaurante() => await ColeccionDesdeTablaAsync();
 
+    }
 
     
 
