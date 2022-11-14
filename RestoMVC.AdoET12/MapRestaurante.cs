@@ -143,7 +143,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             {
                 resto = null;
             }
-            
+
             return await ElementoDesdeSPAsync();
 
         }
@@ -157,6 +157,6 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
 
     }
 
-    
+
 
 }

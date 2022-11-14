@@ -70,9 +70,9 @@ namespace RestoMVC.Mvc.Controllers
             return RedirectToAction(nameof(Index));
         }
         [HttpPost]
-        public async Task <ActionResult> Login(Restaurante resto)
+        public async Task<ActionResult> Login(Restaurante resto)
         {
-            var log = await Ado.restoPorPass(resto.Contrasenia , resto.Mail);
+            var log = await Ado.restoPorPassAsync(resto.Contrasenia, resto.Mail);
             if (log is null)
                 return NotFound();
             return View();

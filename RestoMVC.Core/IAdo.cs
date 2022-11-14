@@ -14,7 +14,7 @@ namespace RestoMVC.Core
         Task ActualizarRestauranteAsync(Restaurante restaurante);
         Task<Restaurante> RestaurantePorIdAsync(int Id);
 
-        Task <Restaurante> restoPorPass(string contrasenia, string mail);
+        Task<Restaurante> restoPorPassAsync(string contrasenia, string mail);
 
     }
 

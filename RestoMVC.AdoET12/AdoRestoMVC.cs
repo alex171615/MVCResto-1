@@ -30,9 +30,9 @@ namespace RestoMVC.AdoET12
             return await MapRestaurante.RestaurantePorIdAsync(id);
         }
 
-        public Task <Restaurante> restoPorPass(string contrasenia, string mail)
+        public async Task<Restaurante> restoPorPassAsync(string contrasenia, string mail)
         {
-            return  MapRestaurante.restoPorPassAsync(contrasenia , mail);
+            return await MapRestaurante.restoPorPassAsync(contrasenia, mail);
         }
     }
 }
