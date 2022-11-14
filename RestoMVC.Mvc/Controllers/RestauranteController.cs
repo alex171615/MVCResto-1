@@ -75,7 +75,7 @@ namespace RestoMVC.Mvc.Controllers
             var log = await Ado.restoPorPassAsync(resto.Contrasenia, resto.Mail);
             if (log is null)
                 return NotFound();
-            return View();
+            return View(log);
         }
     }
 }
