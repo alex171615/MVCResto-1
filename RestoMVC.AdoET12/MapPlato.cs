@@ -11,17 +11,15 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
 {
     public class MapPlato : Mapeador<Plato>
     {
+        public MapPlato(AdoAGBD ado) : base(ado) => Tabla = "Plato";
+
         public MapCategoria MapCategoria { get; set; }
         public MapRestaurante MapRestaurante { get; set; }
-        public MapPlato(AdoAGBD ado) : base(ado) => Tabla = "Plato";
-        public MapPlato(MapCategoria mapCategoria) : this(mapCategoria.AdoAGBD)
-        => MapCategoria = mapCategoria;
-        public MapPlato(MapRestaurante mapRestaurante) : this(mapRestaurante.AdoAGBD)
-        => MapRestaurante = mapRestaurante;
-
-
-
-
+        public MapPlato(MapRestaurante mapRestaurante, MapCategoria mapCategoria) : this(mapCategoria.AdoAGBD)
+        {
+            MapRestaurante = mapRestaurante;
+            MapCategoria = mapCategoria;
+        }
 
         public override Plato ObjetoDesdeFila(DataRow fila)
         => new Plato()
@@ -44,6 +42,16 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             BP.CrearParametroSalida("unidPlato")
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
                     .SetValor(plato.Id)
+                    .AgregarParametro();
+
+            BP.CrearParametro("unidRestaurante")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+                    .SetValor(plato.restaurante.Id)
+                    .AgregarParametro();
+
+            BP.CrearParametro("unidCategoria")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+                    .SetValor(plato.categoria.Id)
                     .AgregarParametro();
 
             BP.CrearParametro("unNombre")
