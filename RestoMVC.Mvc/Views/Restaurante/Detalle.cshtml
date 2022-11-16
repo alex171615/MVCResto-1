@@ -12,14 +12,15 @@
 </head>
 
 <body>
-    <div>
+    <div class="cons">
         <h3>Restaurante:@Model.Nombre</h3>
         Direccion: @Model.Direccion<br>
         Mail: @Model.Mail
         Telefono: @Model.Telefono
         <br />
+        <a asp-action="Index">Restaurantes</a>
     </div>
-    <a asp-action="Index">Restaurantes</a>
+
 </body>
 
 </html>
