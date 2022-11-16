@@ -39,7 +39,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
 
         public void ConfigurarAltaPlato(Plato plato)
         {
-            SetComandoSP("altaRestaurante");
+            SetComandoSP("altaPlato");
 
             BP.CrearParametroSalida("unidPlato")
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
@@ -70,7 +70,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         {
             SetComandoSP("actualizarPlato");
 
-            BP.CrearParametro("unidRestaurante")
+            BP.CrearParametro("unidPlato")
                     .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
                     .SetValor(plato.Id)
                     .AgregarParametro();

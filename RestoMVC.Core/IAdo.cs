@@ -16,6 +16,8 @@ namespace RestoMVC.Core
 
         Task<Restaurante?> restoPorPassAsync(string contrasenia, string mail);
 
+        //Platos
+
         Task AltaPlatoAsync(Plato plato);
         Task<List<Plato>> ObtenerPlatoAsync();
 
