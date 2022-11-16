@@ -34,56 +34,82 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         };
 
 
-        public void AltaPlato(Plato plato)
-            => EjecutarComandoCon("altaPlato", ConfigurarAltaPlato, plato);
-
+        public async Task AltaPlatoAsync(Plato plato)
+            => await EjecutarComandoAsync("altaPlato", ConfigurarAltaPlato, PostAltaPlato, plato);
 
         public void ConfigurarAltaPlato(Plato plato)
         {
-            SetComandoSP("altaPlato");
+            SetComandoSP("altaRestaurante");
 
-            BP.CrearParametroSalida("Id")
-                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            BP.CrearParametroSalida("unidPlato")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
                     .SetValor(plato.Id)
                     .AgregarParametro();
 
-            BP.CrearParametro("Nombre")
+            BP.CrearParametro("unNombre")
                     .SetTipoVarchar(45)
                     .SetValor(plato.Nombre)
                     .AgregarParametro();
 
-            BP.CrearParametro("unIdCategoria")
-                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
-                    .SetValor(plato.categoria.Id)
+            BP.CrearParametro("unPrecio")
+                    .SetTipoVarchar(45)
+                    .SetValor(plato.Precio)
+                    .AgregarParametro();
+        }
+        public void ConfigurarBajaPlato(Plato plato)
+        {
+            SetComandoSP("eliminarPlato");
+
+            BP.CrearParametro("unidPlato")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+                    .SetValor(plato.Id)
                     .AgregarParametro();
 
-            BP.CrearParametro("unIdRestaurante")
-                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UByte)
-                    .SetValor(plato.restaurante.Id)
+        }
+        public void ConfigurarActualizacionPlato(Plato plato)
+        {
+            SetComandoSP("actualizarPlato");
+
+            BP.CrearParametro("unidRestaurante")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+                    .SetValor(plato.Id)
                     .AgregarParametro();
 
-            BP.CrearParametro("Precio")
-                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.UInt16)
+            BP.CrearParametro("unNombre")
+                    .SetTipoVarchar(45)
+                    .SetValor(plato.Nombre)
+                    .AgregarParametro();
+
+            BP.CrearParametro("unPrecio")
+                    .SetTipoVarchar(45)
                     .SetValor(plato.Precio)
                     .AgregarParametro();
 
         }
+        public async Task EliminarPlatoAsync(Plato plato)
+            => await EjecutarComandoAsync("eliminarPlato", ConfigurarBajaPlato, plato);
+        public async Task ActualizarPlatoAsync(Plato plato)
+            => await EjecutarComandoAsync("actualizarPlato", ConfigurarActualizacionPlato, plato);
 
-
-        public Plato PlatoPorId(int Id)
+        public async Task<Plato> PlatoPorIdAsync(int? Id)
         {
             SetComandoSP("PlatoPorId");
 
-            BP.CrearParametro("unId")
-                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
-                    .SetValor(Id)
-                    .AgregarParametro();
-
-            return ElementoDesdeSP();
+            BP.CrearParametro("unidPlato")
+                .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+                .SetValor(Id.Value)
+                .AgregarParametro();
+            return await ElementoDesdeSPAsync();
         }
 
 
-        public List<Plato> ObtenerPlato() => ColeccionDesdeTabla();
+        public void PostAltaPlato(Plato plato)
+        {
+            var paramIdPlato = GetParametro("unidPlato");
+            plato.Id = Convert.ToInt32(paramIdPlato.Value);
+        }
+        public async Task<List<Plato>> ObtenerPlatoAsync() => await ColeccionDesdeTablaAsync();
+
     }
 
 }

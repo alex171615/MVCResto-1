@@ -10,10 +10,12 @@ namespace RestoMVC.AdoET12
     {
         public AdoAGBD Ado { get; set; }
         public MapRestaurante MapRestaurante { get; set; }
+        public MapPlato MapPlato { get; set; }
         public AdoRestoMVC(AdoAGBD ado)
         {
             Ado = ado;
             MapRestaurante = new MapRestaurante(Ado);
+            MapPlato = new MapPlato(Ado);
         }
         public async Task AltaRestauranteAsync(Restaurante restaurante) => await MapRestaurante.AltaRestauranteAsync(restaurante);
 
@@ -33,6 +35,23 @@ namespace RestoMVC.AdoET12
         public async Task<Restaurante?> restoPorPassAsync(string contrasenia, string mail)
         {
             return await MapRestaurante.restoPorPassAsync(contrasenia, mail);
+        }
+
+        //Todo lo plato
+
+        public async Task AltaPlatoAsync(Plato plato) => await MapPlato.AltaPlatoAsync(plato);
+
+        public async Task<List<Plato>> ObtenerPlatoAsync() => await MapPlato.ObtenerPlatoAsync();
+
+        public async Task<Plato> PlatoAsync(int id) => await MapPlato.PlatoPorIdAsync(id);
+
+        public async Task EliminarPlatoAsync(Plato plato) => await MapPlato.EliminarPlatoAsync(plato);
+
+        public async Task ActualizarPlatoAsync(Plato plato) => await MapPlato.ActualizarPlatoAsync(plato);
+
+        public async Task<Plato> PlatoPorIdAsync(int id)
+        {
+            return await MapPlato.PlatoPorIdAsync(id);
         }
     }
 }

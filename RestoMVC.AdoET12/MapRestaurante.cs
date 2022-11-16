@@ -153,7 +153,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             restaurante.Id = Convert.ToInt32(paramIdRestaurante.Value);
         }
         public async Task<List<Restaurante>> ObtenerRestauranteAsync() => await ColeccionDesdeTablaAsync();
-        public async Task<List<Restaurante>> ObtenerRestaurante() => await ColeccionDesdeTablaAsync();
+
 
     }
 

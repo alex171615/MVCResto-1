@@ -1,0 +1,38 @@
+@using RestoMVC.Core;
+@model IEnumerable<Restaurante>
+@{
+    ViewData["Title"] = "Restaurantes";
+}
+
+<body>
+    <table>
+        <tbody>
+            @foreach (Restaurante restaurante in Model)
+            {
+                <tr>
+                    <div>
+                        <td>
+                            <a asp-controller="Restaurante" asp-action="Detalle" asp-route-id="@restaurante.Id"><button
+                                type="submit"><b>@restaurante.Nombre</b></button></a>
+                        </td>
+                    </div>
+                    <div>
+                        <td>
+                            <a asp-controller="Restaurante" asp-action="ActualizarRestaurante"
+                            asp-route-id="@restaurante.Id"><button type="submit"><b>Actualizar</b></button></a>
+                        </td>
+                    </div>
+                    <div>
+                        <td>
+                            <form asp-controller="Restaurante" asp-action="EliminarRestaurante" method="post">
+                                <input type="hidden" asp-for="@restaurante.Id">
+                                <button type="submit"><b>Eliminar</b></button>
+                            </form>
+                        </td>
+                    </div>
+                    <div>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

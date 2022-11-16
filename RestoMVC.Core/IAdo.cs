@@ -16,6 +16,15 @@ namespace RestoMVC.Core
 
         Task<Restaurante?> restoPorPassAsync(string contrasenia, string mail);
 
+        Task AltaPlatoAsync(Plato plato);
+        Task<List<Plato>> ObtenerPlatoAsync();
+
+        Task EliminarPlatoAsync(Plato plato);
+        Task ActualizarPlatoAsync(Plato plato);
+        Task<Plato> PlatoPorIdAsync(int Id);
+
+        Task<Restaurante?> platoPorPassAsync(string contrasenia, string mail);
+
     }
 
 
