@@ -1,32 +1,34 @@
 using et12.edu.ar.AGBD.Mapeadores;
 using et12.edu.ar.AGBD.Ado;
-using System;
 using System.Data;
-using System.Collections.Generic;
 using RestoMVC.Core;
-using RestoMVC.Core.AdoET12;
 
 
 namespace RestoMVC.Core.AdoET12.Mapeadores
 {
     public class MapPlato : Mapeador<Plato>
     {
-        public MapPlato(AdoAGBD ado) : base(ado) => Tabla = "Plato";
+        public MapPlato(AdoAGBD ado) : base(ado)
+        {
+            Tabla = "Plato";
+
+        }
 
         public MapCategoria MapCategoria { get; set; }
         public MapRestaurante MapRestaurante { get; set; }
-        public MapPlato(MapRestaurante mapRestaurante, MapCategoria mapCategoria) : this(mapCategoria.AdoAGBD)
+        public MapPlato(MapRestaurante mapRestaurante, MapCategoria mapCategoria) : this(mapRestaurante.AdoAGBD)
         {
             MapRestaurante = mapRestaurante;
             MapCategoria = mapCategoria;
+
         }
 
         public override Plato ObjetoDesdeFila(DataRow fila)
         => new Plato()
         {
             Id = Convert.ToInt32(fila["id"]),
-            restaurante = MapRestaurante.RestaurantePorId(Convert.ToByte(fila["idRestaurante"])),
-            categoria = MapCategoria.CategoriaPorId(Convert.ToByte(fila["idRubro"])),
+            restaurante = MapRestaurante.RestaurantePorId(Convert.ToInt32(fila["idRestaurante"])),
+            categoria = MapCategoria.CategoriaPorId(Convert.ToInt32(fila["idCategoria"])),
             Nombre = fila["nombre"].ToString(),
             Precio = Convert.ToDouble(fila["precio"])
         };
@@ -93,6 +95,7 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                     .SetValor(plato.Precio)
                     .AgregarParametro();
 
+
         }
         public async Task EliminarPlatoAsync(Plato plato)
             => await EjecutarComandoAsync("eliminarPlato", ConfigurarBajaPlato, plato);
@@ -109,8 +112,6 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                 .AgregarParametro();
             return await ElementoDesdeSPAsync();
         }
-
-
 
         public void PostAltaPlato(Plato plato)
         {

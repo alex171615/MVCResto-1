@@ -25,6 +25,15 @@ namespace RestoMVC.Core
         Task ActualizarPlatoAsync(Plato plato);
         Task<Plato> PlatoPorIdAsync(int Id);
 
+        //Categoria
+
+        Task AltaCategoriaAsync(Categoria categoria);
+        Task<List<Categoria?>> ObtenerCategoriaAsync();
+        Task EliminarCategoriaAsync(Categoria categoria);
+        Task ActualizarCategoriaAsync(Categoria categoria);
+        Task<Categoria> CategoriaPorIdAsync(int Id);
+
+
     }
 
 

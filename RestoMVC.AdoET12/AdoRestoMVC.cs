@@ -11,11 +11,13 @@ namespace RestoMVC.AdoET12
         public AdoAGBD Ado { get; set; }
         public MapRestaurante MapRestaurante { get; set; }
         public MapPlato MapPlato { get; set; }
+        public MapCategoria MapCategoria { get; set; }
         public AdoRestoMVC(AdoAGBD ado)
         {
             Ado = ado;
             MapRestaurante = new MapRestaurante(Ado);
-            MapPlato = new MapPlato(Ado);
+            MapPlato = new MapPlato(MapRestaurante, MapCategoria);
+            MapCategoria = new MapCategoria(Ado);
         }
         public async Task AltaRestauranteAsync(Restaurante restaurante) => await MapRestaurante.AltaRestauranteAsync(restaurante);
 
@@ -52,6 +54,25 @@ namespace RestoMVC.AdoET12
         public async Task<Plato> PlatoPorIdAsync(int id)
         {
             return await MapPlato.PlatoPorIdAsync(id);
+        }
+
+
+
+        //Todo Categoria
+
+        public async Task AltaCategoriaAsync(Categoria categoria) => await MapCategoria.AltaCategoriaAsync(categoria);
+
+        public async Task<List<Categoria>> ObtenerCategoriaAsync() => await MapCategoria.ObtenerCategoriaAsync();
+
+        public async Task<Categoria> CategoriaAsync(int id) => await MapCategoria.CategoriaPorIdAsync(id);
+
+        public async Task EliminarCategoriaAsync(Categoria categoria) => await MapCategoria.EliminarCategoriaAsync(categoria);
+
+        public async Task ActualizarCategoriaAsync(Categoria categoria) => await MapCategoria.ActualizarCategoriaAsync(categoria);
+
+        public async Task<Categoria> CategoriaPorIdAsync(int id)
+        {
+            return await MapCategoria.CategoriaPorIdAsync(id);
         }
 
     }

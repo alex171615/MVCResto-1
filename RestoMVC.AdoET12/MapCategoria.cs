@@ -20,8 +20,8 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             Id = Convert.ToInt32(fila["id"]),
             Nombre = fila["nombre"].ToString()
         };
-        public void AltaCategoria(Categoria categoria)
-            => EjecutarComandoCon("altaCategoria", ConfigurarAltaCategoria, PostAltaCategoria, categoria);
+        public async Task AltaCategoriaAsync(Categoria categoria)
+            => await EjecutarComandoAsync("altaCategoria", ConfigurarAltaCategoria, PostAltaCategoria, categoria);
 
         public void ConfigurarAltaCategoria(Categoria categoria)
         {
@@ -36,26 +36,66 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
                     .SetValor(categoria.Nombre)
                     .AgregarParametro();
         }
+        public void ConfigurarBajaCategoria(Categoria categoria)
+        {
+            SetComandoSP("eliminarCategoria");
+
+            BP.CrearParametro("unidCategoria")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+                    .SetValor(categoria.Id)
+                    .AgregarParametro();
+
+        }
+        public void ConfigurarActualizacionCategoria(Categoria categoria)
+        {
+            SetComandoSP("actualizarCategoria");
+
+            BP.CrearParametro("unidCategoria")
+                    .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int16)
+                    .SetValor(categoria.Id)
+                    .AgregarParametro();
+
+            BP.CrearParametro("unNombre")
+                    .SetTipoVarchar(45)
+                    .SetValor(categoria.Nombre)
+                    .AgregarParametro();
+
+        }
+        public async Task EliminarCategoriaAsync(Categoria categoria)
+            => await EjecutarComandoAsync("eliminarCateria", ConfigurarBajaCategoria, categoria);
+        public async Task ActualizarCategoriaAsync(Categoria categoria)
+            => await EjecutarComandoAsync("actualizarPlato", ConfigurarActualizacionCategoria, categoria);
+
 
         public void PostAltaCategoria(Categoria categoria)
         {
             var paramIdCategoria = GetParametro("unIdCategoria");
             categoria.Id = Convert.ToByte(paramIdCategoria.Value);
-        } 
+        }
 
 
-        public Categoria CategoriaPorId(int Id)
+        public async Task<Categoria> CategoriaPorIdAsync(int? Id)
         {
             SetComandoSP("CategoriaPorId");
 
-            BP.CrearParametro("unId")
+            BP.CrearParametro("unidCategoria")
                 .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
-                .SetValor(Id)
+                .SetValor(Id.Value)
                 .AgregarParametro();
+            return await ElementoDesdeSPAsync();
+        }
+        public Categoria CategoriaPorId(int? Id)
+        {
+            SetComandoSP("CategoriaPorId");
+
+            BP.CrearParametro("unidCategoria")
+              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+              .SetValor(Id.Value)
+              .AgregarParametro();
 
             return ElementoDesdeSP();
         }
-        public List<Categoria> ObtenerCategoria() => ColeccionDesdeTabla();
+        public async Task<List<Categoria>> ObtenerCategoriaAsync() => await ColeccionDesdeTablaAsync();
     }
 
 }
