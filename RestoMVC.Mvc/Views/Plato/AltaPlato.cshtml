@@ -24,8 +24,24 @@
                     <label asp-for="Precio">Precio:</label>
                     <input asp-for="Precio">
                 </div>
+            </div><br>
+            <select asp-items="Model.Restaurantes" asp-for="Id" class="form-select">
+                @if (Model.Id == 0)
+                {
+                    <option selected="selected" value="" disabled>Selecione un estudio</option>
+                }
+            </select>
+            <br>
+            <select asp-items="Model.Autores" asp-for="idAutor" class="form-select">
+                @if (Model.idAutor == 0)
+                {
+                    <option selected="selected" value="" disabled>Selecione un Autor</option>
+                }
+            </select>
+            <div>
+                <button type="submit">Alta Plato</button>
             </div>
-            <button type="submit">Alta Plato</button>
+
         </div>
     </form>
 </body>
