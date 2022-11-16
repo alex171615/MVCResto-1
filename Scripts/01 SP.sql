@@ -96,18 +96,16 @@ WHERE
     unMail = mail
     AND sha2(unaContrasenia, 256) = contrasenia;
 
-END $$ 
-
+END $$
 DROP PROCEDURE
     IF EXISTS eliminarRestaurante $$
 CREATE PROCEDURE
-    eliminarRestaurante(unidRestaurante SMALLINT)
-    BEGIN
-    DELETE FROM Plato 
-    WHERE idPlato = idPlato;
-DELETE FROM Restaurante
-WHERE
-    idRestaurante = unidRestaurante;
+    eliminarRestaurante(unidRestaurante SMALLINT) BEGIN
+DELETE FROM Plato
+WHERE idPlato = idPlato;
+
+DELETE FROM Restaurante WHERE idRestaurante = unidRestaurante;
+
 END $$ 
 
 DELIMITER $$
@@ -133,16 +131,60 @@ SET
 WHERE
     idRestaurante = unidRestaurante;
 
-END $$  
+END $$ 
 
 DELIMITER $$
 
-DROP PROCEDURE IF EXISTS RestaurantePorId $$
-CREATE PROCEDURE RestaurantePorId(
-    unidRestaurante SMALLINT
-)BEGIN 
-	SELECT *
-	FROM Restaurante
-	WHERE
-	    idRestaurante = unidRestaurante;
+DROP PROCEDURE
+    IF EXISTS RestaurantePorId $$
+CREATE PROCEDURE
+    RestaurantePorId(unidRestaurante SMALLINT) BEGIN
+SELECT *
+FROM Restaurante
+WHERE
+    idRestaurante = unidRestaurante;
+
 END $$
+/* Cosas del plato */
+
+DELIMITER $$
+
+DROP PROCEDURE
+    IF EXISTS eliminarPlato $$
+CREATE PROCEDURE
+    eliminarPlato(unidPlato SMALLINT) BEGIN
+DELETE FROM Plato
+WHERE idPlato = idPlato;
+
+DELETE FROM Plato WHERE idPlato = unidPlato;
+
+END $$ 
+
+DELIMITER $$
+
+DROP PROCEDURE
+    IF EXISTS actualizarPlato $$
+CREATE PROCEDURE
+    actualizarPlato(
+        unNombre VARCHAR(45),
+        unaPrecio DECIMAL(7, 5)
+    ) BEGIN
+UPDATE Plato
+SET
+    Nombre = unNombre,
+    Precio = unPrecio
+WHERE idPlato = unidPlato;
+
+END $$ 
+
+DELIMITER $$
+
+DROP PROCEDURE
+    IF EXISTS PlatoPorId $$
+CREATE PROCEDURE
+    PlatoPorId(unidPlato SMALLINT) BEGIN
+SELECT *
+FROM Plato
+WHERE idPlato = unidPlato;
+
+END $$ 
