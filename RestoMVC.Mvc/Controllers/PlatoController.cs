@@ -10,14 +10,14 @@ namespace RestoMVC.Mvc.Controllers
         public PlatoController(IAdo ado) => Ado = ado;
         public async Task<IActionResult> Index()
         {
-            var restaurantes = await Ado.ObtenerPlatoAsync();
-            return View("Listado", restaurantes);
+            var platos = await Ado.ObtenerPlatoAsync();
+            return View("Listado", platos);
         }
 
 
 
         [HttpGet]
-        public IActionResult AltaRestaurante()
+        public IActionResult AltaPlato()
         {
             return View();
         }
@@ -25,67 +25,60 @@ namespace RestoMVC.Mvc.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> AltaRestaurante(Restaurante restaurante)
+        public async Task<IActionResult> AltaPlato(Plato plato)
         {
-            await Ado.AltaRestauranteAsync(restaurante);
+            await Ado.AltaPlatoAsync(plato);
             return RedirectToAction(nameof(Index));
         }
 
 
 
         [HttpPost]
-        public async Task<IActionResult> EliminarRestaurante(Restaurante restaurante)
+        public async Task<IActionResult> EliminarPlato(Plato plato)
         {
-            restaurante = await Ado.RestaurantePorIdAsync(restaurante.Id);
-            if (restaurante is null)
+            plato = await Ado.PlatoPorIdAsync(plato.Id);
+            if (plato is null)
             {
                 return NotFound();
             }
             else
-                await Ado.EliminarRestauranteAsync(restaurante);
+                await Ado.EliminarPlatoAsync(plato);
             return RedirectToAction(nameof(Index));
         }
 
 
 
         [HttpGet]
-        public async Task<IActionResult> ActualizarRestaurante(int id)
+        public async Task<IActionResult> ActualizarPlato(int id)
         {
-            Restaurante restos = await Ado.RestaurantePorIdAsync(id);
-            if (restos is null)
+            Plato platos = await Ado.PlatoPorIdAsync(id);
+            if (platos is null)
             {
                 return NotFound();
             }
             else
-                return View(restos);
+                return View(platos);
         }
 
 
 
         [HttpPost]
-        public async Task<IActionResult> ActualizarRestauranteAsync(Restaurante restaurante)
+        public async Task<IActionResult> ActualizarPlatoAsync(Plato plato)
         {
-            await Ado.ActualizarRestauranteAsync(restaurante);
-            await Ado.ActualizarRestauranteAsync(restaurante);
+            await Ado.ActualizarPlatoAsync(plato);
+            await Ado.ActualizarPlatoAsync(plato);
             return RedirectToAction(nameof(Index));
         }
-        [HttpPost]
-        public async Task<ActionResult> Login(Restaurante resto)
-        {
-            var log = await Ado.restoPorPassAsync(resto.Contrasenia, resto.Mail);
-            if (log is null)
-                return NotFound();
-            return View(log);
-        }
+
         [HttpGet]
         public async Task<IActionResult> Detalle(int id)
         {
-            Restaurante restaurante = await Ado.RestaurantePorIdAsync(id);
-            if (restaurante is null)
+            Plato plato = await Ado.PlatoPorIdAsync(id);
+            if (plato is null)
             {
                 return NotFound();
             }
-            return View(restaurante);
+            return View(plato);
         }
 
     }

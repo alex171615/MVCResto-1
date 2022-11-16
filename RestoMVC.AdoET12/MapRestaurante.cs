@@ -121,7 +121,6 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         }
 
         public async Task<Restaurante?> restoPorPassAsync(string? Mail, string? Contrasenia)
-
         {
             SetComandoSP("restoPorPass");
 

@@ -1,4 +1,4 @@
-@model RestoMVC.Core.Restaurante
+@model RestoMVC.Core.Plato
 @{
     Layout = null;
 }
@@ -24,23 +24,8 @@
                     <input asp-for="Nombre">
                 </div>
                 <div>
-                    <label asp-for="Direccion">Direccion:</label>
-                    <input asp-for="Direccion">
-                </div>
-                <div>
-                    <label asp-for="Mail">Mail:</label>
-                    <input asp-for="Mail">
-                </div>
-                <div>
-                    <label asp-for="Telefono">Telefono:</label>
-                    <input asp-for="Telefono">
-                </div>
-                <div>
-                    <label asp-for="Contrasenia">Contrasenia:</label>
-                    <input asp-for="Contrasenia" type="password">
-                </div>
-                <div>
-
+                    <label asp-for="Precio">Precio:</label>
+                    <input asp-for="Precio">
                 </div>
             </div>
             <button type="submit">Actualizar</button>

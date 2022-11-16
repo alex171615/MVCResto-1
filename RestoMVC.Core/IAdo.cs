@@ -23,8 +23,6 @@ namespace RestoMVC.Core
         Task ActualizarPlatoAsync(Plato plato);
         Task<Plato> PlatoPorIdAsync(int Id);
 
-        Task<Restaurante?> platoPorPassAsync(string contrasenia, string mail);
-
     }
 
 

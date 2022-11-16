@@ -1,4 +1,4 @@
-@model RestoMVC.Core.Restaurante
+@model RestoMVC.Core.Plato
 @{
     Layout = null;
 }
@@ -15,15 +15,10 @@
     <div class="cons">
         <ul>
             <h3>Restaurante:&nbsp;@Model.Nombre</h3><br>
-            <h4> Direccion: @Model.Direccion </h4>
-            <h4>Mail: @Model.Mail</h4>
-            <h4>Telefono: @Model.Telefono</h4>
+            <h4> Direccion: @Model.Precio</h4>
         </ul>
-
-
-
         <a asp-action="Index">
-            <h2>Restaurantes</h2>
+            <h2>Platos</h2>
         </a>
     </div>
 

@@ -1,31 +1,31 @@
 @using RestoMVC.Core;
-@model IEnumerable<Restaurante>
+@model IEnumerable<Plato>
 @{
-    ViewData["Title"] = "Restaurantes";
+    ViewData["Title"] = "Platos";
 }
 
 <body>
     <table>
         <tbody>
-            @foreach (Restaurante restaurante in Model)
+            @foreach (Plato plato in Model)
             {
                 <tr>
                     <div>
                         <td>
-                            <a asp-controller="Restaurante" asp-action="Detalle" asp-route-id="@restaurante.Id"><button
-                                type="submit"><b>@restaurante.Nombre</b></button></a>
+                            <a asp-controller="Plato" asp-action="Detalle" asp-route-id="@plato.Id"><button
+                                type="submit"><b>@plato.Nombre</b></button></a>
                         </td>
                     </div>
                     <div>
                         <td>
-                            <a asp-controller="Restaurante" asp-action="ActualizarRestaurante"
-                            asp-route-id="@restaurante.Id"><button type="submit"><b>Actualizar</b></button></a>
+                            <a asp-controller="Plato" asp-action="Actualizarplato" asp-route-id="@plato.Id"><button
+                                type="submit"><b>Actualizar</b></button></a>
                         </td>
                     </div>
                     <div>
                         <td>
-                            <form asp-controller="Restaurante" asp-action="EliminarRestaurante" method="post">
-                                <input type="hidden" asp-for="@restaurante.Id">
+                            <form asp-controller="Plato" asp-action="Eliminarplato" method="post">
+                                <input type="hidden" asp-for="@plato.Id">
                                 <button type="submit"><b>Eliminar</b></button>
                             </form>
                         </td>

@@ -1,0 +1,33 @@
+@model RestoMVC.Core.Plato;
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <title>RestoMVC - Platos</title>
+</head>
+
+<body>
+    <form asp-action="AltaPlato" method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <div class="cons">
+                <div>
+                    <label asp-for="Nombre">Nombre:</label>
+                    <input asp-for="Nombre">
+                </div>
+                <div>
+                    <label asp-for="Precio">Precio:</label>
+                    <input asp-for="Precio">
+                </div>
+            </div>
+            <button type="submit">Alta Plato</button>
+        </div>
+    </form>
+</body>
+
+</html>

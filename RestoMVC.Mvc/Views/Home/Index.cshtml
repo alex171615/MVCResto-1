@@ -1,16 +1,20 @@
 ﻿@{
     Layout = null;
- }
+}
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <title>RestoMVC</title>
 </head>
+
 <body>
     <h2>Elegi donde entrar</h2>
     <a asp-controller="Restaurante" asp-action="Index">Restaurantes</a><br />
-    <a asp-controller="Categoria" asp-action="Index">Categorias</a>
+    <a asp-controller="Categoria" asp-action="Index">Categorias</a><br>
+    <a asp-controller="Plato" asp-action="Index">Plato</a>
 </body>
+
 </html>
