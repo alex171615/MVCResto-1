@@ -77,5 +77,16 @@ namespace RestoMVC.Mvc.Controllers
                 return NotFound();
             return View(log);
         }
+        [HttpGet]
+        public async Task<IActionResult> Detalle(int id)
+        {
+            Restaurante restaurante = await Ado.RestaurantePorIdAsync(id);
+            if (restaurante is null)
+            {
+                return NotFound();
+            }
+            return View(restaurante);
+        }
+
     }
 }

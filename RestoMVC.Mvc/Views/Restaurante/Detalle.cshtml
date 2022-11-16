@@ -4,18 +4,22 @@
 }
 <!DOCTYPE html>
 <html>
+
 <head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <title>RestoMVC - Detalle @Model.Nombre</title>
 </head>
+
 <body>
     <div>
-        <h3>@Model.Nombre</h3>
+        <h3>Restaurante:@Model.Nombre</h3>
         Direccion: @Model.Direccion<br>
         Mail: @Model.Mail
         Telefono: @Model.Telefono
-        <br/>
+        <br />
     </div>
-    <a asp-controller="Restaurantes" asp-action="Index">Restaurantes</a>
     <a asp-action="Index">Restaurantes</a>
 </body>
+
 </html>

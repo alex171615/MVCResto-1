@@ -12,32 +12,25 @@
                 <tr>
                     <div>
                         <td>
-                        <a asp-controller="Restaurante" asp-action="Index"
-                        asp-route-id="@restaurante.Id">@restaurante.Nombre</a>
-                    </td>
+                            <a asp-controller="Restaurante" asp-action="Detalle" asp-route-id="@restaurante.Id"><button
+                                type="submit"><b>@restaurante.Nombre</b></button></a>
+                        </td>
                     </div>
                     <div>
                         <td>
-                        <a asp-controller="Restaurante" asp-action="ActualizarRestaurante"
-                        asp-route-id="@restaurante.Id"><button type="submit"><b>Actualizar</b></button></a>
-                    </td>
+                            <a asp-controller="Restaurante" asp-action="ActualizarRestaurante"
+                            asp-route-id="@restaurante.Id"><button type="submit"><b>Actualizar</b></button></a>
+                        </td>
                     </div>
                     <div>
                         <td>
                             <form asp-controller="Restaurante" asp-action="EliminarRestaurante" method="post">
-                            <input type="hidden" asp-for="@restaurante.Id">
-                            <button type="submit"><b>Eliminar</b></button>
-                            </form>
-                    </td>
-                    </div>
-                    <div>
-                        <td>
-                            <form asp-controller="Restaurante" asp-action="Login" method="post">
-                            <input type="hidden" asp-for="@restaurante.Id">
-                            <button type="submit"><b>VerResto</b></button>
+                                <input type="hidden" asp-for="@restaurante.Id">
+                                <button type="submit"><b>Eliminar</b></button>
                             </form>
                         </td>
                     </div>
+                    <div>
                 </tr>
             }
         </tbody>
