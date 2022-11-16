@@ -25,10 +25,10 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
         => new Plato()
         {
             Id = Convert.ToInt32(fila["id"]),
+            restaurante = MapRestaurante.RestaurantePorId(Convert.ToByte(fila["idRestaurante"])),
             categoria = MapCategoria.CategoriaPorId(Convert.ToByte(fila["idRubro"])),
             Nombre = fila["nombre"].ToString(),
             Precio = Convert.ToDouble(fila["precio"])
-
         };
 
 

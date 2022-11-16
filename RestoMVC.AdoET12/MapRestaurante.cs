@@ -120,6 +120,18 @@ namespace RestoMVC.Core.AdoET12.Mapeadores
             return await ElementoDesdeSPAsync();
         }
 
+        public Restaurante RestaurantePorId(int Id)
+        {
+            SetComandoSP("RestaurantePorId");
+
+            BP.CrearParametro("unIdRestaurante")
+              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+              .SetValor(Id)
+              .AgregarParametro();
+
+            return ElementoDesdeSP();
+        }
+
         public async Task<Restaurante?> restoPorPassAsync(string? Mail, string? Contrasenia)
         {
             SetComandoSP("restoPorPass");
