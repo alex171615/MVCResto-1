@@ -11,7 +11,7 @@
 
 ## Computación 2022
 
-**Asignatura**: Procedimiento sobre redes
+**Asignatura**: Proceso sobre redes
 
 **Nombre TP**: Restaurante
 
