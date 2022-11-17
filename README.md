@@ -11,13 +11,13 @@
 
 ## Computación 2022
 
-**Asignatura**: <!-- REEMPLAZA este comentario por el nombre de la asignatura -->
+**Asignatura**: Procedimiento sobre redes
 
-**Nombre TP**: <!-- REEMPLAZA este comentario por el nombre del TP -->
+**Nombre TP**: Restaurante
 
-**Apellido y nombre Alumno**: <!-- REEMPLAZA este comentario por tu apellido y nombre -->
+**Apellido y nombre Alumno**: Alexis Noguera, Cristhian Mayta, Jhonny Vicente
 
-**Curso**: <!-- REEMPLAZA este comentario por tu curso -->
+**Curso**: 6°7°
 
 # Título del Proyecto
 
@@ -26,7 +26,7 @@ _Acá va un párrafo que describa lo que es el proyecto._
 ## Comenzando 🚀
 
 Clonar el repositorio github, desde Github Desktop o ejecutar en la terminal o CMD:
-<!-- cambia el link de abajo al de tu repositorio y BORRA ESTE COMENTARIO -->
+gh repo clone alex171615/MVCResto-1
 ```
 git clone https://github.com/ET12DE1Computacion/simpleTemplateCSharp
 ```
