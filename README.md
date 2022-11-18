@@ -15,13 +15,13 @@
 
 **Nombre TP**: Restaurante
 
-**Apellido y nombre Alumno**: Alexis Noguera, Cristhian Mayta, Jhonny Vicente
+**Apellido y nombre Alumno**: Noguera Alexis, Mayta Cristhian, Vicente Jhonny
 
 **Curso**: 6°7°
 
 # Título del Proyecto
 
-_Acá va un párrafo que describa lo que es el proyecto._
+Restaurante
 
 ## Comenzando 🚀
 
