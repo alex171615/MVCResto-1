@@ -1,10 +1,13 @@
 DROP DATABASE
     IF EXISTS MVCRestaurante;
 
+
 CREATE DATABASE
     MVCRestaurante;
 
+
 USE MVCRestaurante;
+
 
 CREATE TABLE
     Restaurante(
@@ -18,12 +21,16 @@ CREATE TABLE
         CONSTRAINT UQ_Restaurante_mail UNIQUE (mail)
     );
 
+
+
 CREATE TABLE
     Categoria(
         idCategoria SMALLINT NOT NULL AUTO_INCREMENT,
         nombre VARCHAR(45) NOT NULL,
         CONSTRAINT PK_Categoria PRIMARY KEY (idCategoria)
     );
+
+
 
 CREATE TABLE
     Plato(
